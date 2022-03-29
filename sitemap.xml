@@ -2,6 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://1518277259.github.io/2022/03/29/%E5%85%83%E7%B4%A0%E5%B1%85%E4%B8%AD/</loc>
+    
+    <lastmod>2022-03-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://1518277259.github.io/2022/03/29/%E5%AE%9E%E7%8E%B0%E4%B8%89%E6%A0%8F%E5%B8%83%E5%B1%80%E7%9A%84%E6%96%B9%E6%B3%95/</loc>
+    
+    <lastmod>2022-03-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://1518277259.github.io/about/index.html</loc>
+    
+    <lastmod>2022-03-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://1518277259.github.io/2022/03/29/Flex%E5%B8%83%E5%B1%80/</loc>
     
     <lastmod>2022-03-29</lastmod>
@@ -63,14 +90,14 @@
   </url>
   
   <url>
-    <loc>https://1518277259.github.io/tags/hexo/</loc>
+    <loc>https://1518277259.github.io/tags/%E5%89%8D%E7%AB%AF/</loc>
     <lastmod>2022-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://1518277259.github.io/tags/%E5%89%8D%E7%AB%AF/</loc>
+    <loc>https://1518277259.github.io/tags/hexo/</loc>
     <lastmod>2022-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -86,14 +113,14 @@
   </url>
   
   <url>
-    <loc>https://1518277259.github.io/categories/hexo/</loc>
+    <loc>https://1518277259.github.io/categories/JS/</loc>
     <lastmod>2022-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://1518277259.github.io/categories/JS/</loc>
+    <loc>https://1518277259.github.io/categories/hexo/</loc>
     <lastmod>2022-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
