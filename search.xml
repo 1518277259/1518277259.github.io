@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Vue脚手架创建</title>
+      <link href="/2022/03/31/Vue%E8%84%9A%E6%89%8B%E6%9E%B6%E5%88%9B%E5%BB%BA/"/>
+      <url>/2022/03/31/Vue%E8%84%9A%E6%89%8B%E6%9E%B6%E5%88%9B%E5%BB%BA/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Vue是什么"><a href="#Vue是什么" class="headerlink" title="Vue是什么"></a>Vue是什么</h2><p>Vue是一套用于构建用户界面的渐进式Javascript框架</p><h2 id="Vue的特点"><a href="#Vue的特点" class="headerlink" title="Vue的特点"></a>Vue的特点</h2><ol><li>采用组件化模式，提高代码复用率，让代码更好维护</li><li>采用声明式编码，让开发人员无需操作DOM，提高开发效率</li><li>使用虚拟DOM和diff算法，尽量复用DOM节点</li></ol><h2 id="Vue脚手架"><a href="#Vue脚手架" class="headerlink" title="Vue脚手架"></a>Vue脚手架</h2><p>网速原因先配置淘宝镜像</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure><ol><li>全局安装@vue&#x2F;cli</li></ol><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g @vue/cli</span><br></pre></td></tr></table></figure><ol start="2"><li><p>切换到你要创建的目录，使用命令行创建项目XXX</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue create XXX</span><br></pre></td></tr></table></figure></li><li><p>启动项目</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br><span class="line"></span><br><span class="line">npm run dev/serve</span><br></pre></td></tr></table></figure></li><li><p>使用命令查看项目的webpack打包配置</p></li></ol><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue inspect &gt; output.js</span><br></pre></td></tr></table></figure><h2 id="Vue3-使用Vite创建"><a href="#Vue3-使用Vite创建" class="headerlink" title="Vue3 使用Vite创建"></a>Vue3 使用Vite创建</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 创建工程</span><br><span class="line">npm init vite-app &lt;project-name&gt;</span><br><span class="line"></span><br><span class="line">// 进入工程目录</span><br><span class="line">cd &lt;project-name&gt;</span><br><span class="line"></span><br><span class="line">// 安装依赖</span><br><span class="line">npm install</span><br><span class="line"></span><br><span class="line">// 运行</span><br><span class="line">npm run dev</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> vue </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>元素居中</title>
       <link href="/2022/03/29/%E5%85%83%E7%B4%A0%E5%B1%85%E4%B8%AD/"/>
       <url>/2022/03/29/%E5%85%83%E7%B4%A0%E5%B1%85%E4%B8%AD/</url>
