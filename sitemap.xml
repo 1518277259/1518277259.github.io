@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://1518277259.github.io/2022/04/11/TCP%E5%92%8CUDP%E7%9A%84%E5%8C%BA%E5%88%AB/</loc>
+    
+    <lastmod>2022-04-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://1518277259.github.io/2022/04/11/GEI%E5%92%8CPOST%E7%9A%84%E5%8C%BA%E5%88%AB/</loc>
     
     <lastmod>2022-04-11</lastmod>
@@ -142,14 +151,14 @@
   </url>
   
   <url>
-    <loc>https://1518277259.github.io/tags/vue/</loc>
+    <loc>https://1518277259.github.io/tags/git/</loc>
     <lastmod>2022-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://1518277259.github.io/tags/git/</loc>
+    <loc>https://1518277259.github.io/tags/vue/</loc>
     <lastmod>2022-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -186,14 +195,14 @@
   </url>
   
   <url>
-    <loc>https://1518277259.github.io/categories/vue/</loc>
+    <loc>https://1518277259.github.io/categories/git/</loc>
     <lastmod>2022-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://1518277259.github.io/categories/git/</loc>
+    <loc>https://1518277259.github.io/categories/vue/</loc>
     <lastmod>2022-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
