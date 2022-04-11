@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://1518277259.github.io/2022/04/11/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
+    
+    <lastmod>2022-04-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://1518277259.github.io/2022/03/31/Vue%E8%84%9A%E6%89%8B%E6%9E%B6%E5%88%9B%E5%BB%BA/</loc>
     
     <lastmod>2022-03-31</lastmod>
@@ -85,7 +94,7 @@
 
   <url>
     <loc>https://1518277259.github.io/</loc>
-    <lastmod>2022-03-31</lastmod>
+    <lastmod>2022-04-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -93,28 +102,35 @@
   
   <url>
     <loc>https://1518277259.github.io/tags/CSS/</loc>
-    <lastmod>2022-03-31</lastmod>
+    <lastmod>2022-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://1518277259.github.io/tags/vue/</loc>
-    <lastmod>2022-03-31</lastmod>
+    <lastmod>2022-04-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://1518277259.github.io/tags/git/</loc>
+    <lastmod>2022-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://1518277259.github.io/tags/hexo/</loc>
-    <lastmod>2022-03-31</lastmod>
+    <lastmod>2022-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://1518277259.github.io/tags/%E5%89%8D%E7%AB%AF/</loc>
-    <lastmod>2022-03-31</lastmod>
+    <lastmod>2022-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -123,28 +139,35 @@
   
   <url>
     <loc>https://1518277259.github.io/categories/CSS/</loc>
-    <lastmod>2022-03-31</lastmod>
+    <lastmod>2022-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://1518277259.github.io/categories/vue/</loc>
-    <lastmod>2022-03-31</lastmod>
+    <lastmod>2022-04-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://1518277259.github.io/categories/git/</loc>
+    <lastmod>2022-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://1518277259.github.io/categories/hexo/</loc>
-    <lastmod>2022-03-31</lastmod>
+    <lastmod>2022-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://1518277259.github.io/categories/JS/</loc>
-    <lastmod>2022-03-31</lastmod>
+    <lastmod>2022-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>

@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>git常用命令</title>
+      <link href="/2022/04/11/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+      <url>/2022/04/11/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+      
+        <content type="html"><![CDATA[<p><strong>git branch</strong> 查看本地所有分支<br><br><strong>git status</strong> 查看当前状态<br><br><strong>git commit</strong> 提交 <br><br><strong>git branch -a</strong> 查看所有分支<br><br><strong>git branch -r</strong> 查看远程所有分支<br><br><strong>git commit -am ‘注释’</strong> 提交并添加注释<br><br><strong>git push origin master</strong> 将文件推送到服务器<br><br><strong>git remote show origin</strong> 显示远程库 origin 中的资源<br><br><strong>git checkout –track origin&#x2F;dev</strong> 切换到远程 dev 分支<br><br><strong>git checkout -D master dev</strong> 删除本地库 dev<br><br><strong>git checkout -b dev</strong> 建立一个新的本地分支<br><br><strong>git merge origin&#x2F;dev</strong> 将分支 dev 与当前分支合并<br><br>*git checkout dev** 切换成本地分支<br><br><strong>git remote show</strong> 查看远程库<br><br><strong>git add .</strong> 将文件添加到本地库<br><br>**git rm 文件名(包括路径)** 从 git 删除指定文件<br></p><p>**git clone ** 从服务器上将代码拉下来<br><br><strong>git config –list</strong> 看所有用户<br><br><strong>git ls-files</strong> 看已经被提交的<br><br><strong>git log</strong> 看 commit 的日志<br><br><strong>git diff</strong> 查看尚未暂存的更新<br><br><strong>git rm a.a</strong> 移除文件(从暂存区和工作区中删除)<br><br><strong>git rm –cached a.a</strong> 移除文件(只从暂存区中删除)<br><br><strong>git commit -m “remove”</strong> 移除文件(从 Git 中删除)<br><br><strong>git rm -f a.a</strong> 强行移除修改后文件(从暂存区和工作区中删除)<br><br><strong>git diff –cached 或 $ git diff –staged</strong> 查看尚未提交的更新<br><br><strong>git stash push</strong> 将文件给 push 到一个临时空间中<br><br><strong>git stash pop</strong> 将文件从临时空间 pop 下来<br></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> git </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Vue脚手架创建</title>
       <link href="/2022/03/31/Vue%E8%84%9A%E6%89%8B%E6%9E%B6%E5%88%9B%E5%BB%BA/"/>
       <url>/2022/03/31/Vue%E8%84%9A%E6%89%8B%E6%9E%B6%E5%88%9B%E5%BB%BA/</url>
