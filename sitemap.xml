@@ -183,7 +183,14 @@
   </url>
   
   <url>
-    <loc>https://1518277259.github.io/tags/js/</loc>
+    <loc>https://1518277259.github.io/tags/%E5%89%8D%E7%AB%AF/</loc>
+    <lastmod>2022-04-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://1518277259.github.io/tags/JS/</loc>
     <lastmod>2022-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -191,13 +198,6 @@
   
   <url>
     <loc>https://1518277259.github.io/tags/hexo/</loc>
-    <lastmod>2022-04-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://1518277259.github.io/tags/%E5%89%8D%E7%AB%AF/</loc>
     <lastmod>2022-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -234,7 +234,7 @@
   </url>
   
   <url>
-    <loc>https://1518277259.github.io/categories/js/</loc>
+    <loc>https://1518277259.github.io/categories/JS/</loc>
     <lastmod>2022-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -242,13 +242,6 @@
   
   <url>
     <loc>https://1518277259.github.io/categories/hexo/</loc>
-    <lastmod>2022-04-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://1518277259.github.io/categories/JS/</loc>
     <lastmod>2022-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
