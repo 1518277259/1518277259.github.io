@@ -6,7 +6,7 @@
   <link href="https://1518277259.github.io/atom.xml" rel="self"/>
   
   <link href="https://1518277259.github.io/"/>
-  <updated>2022-04-11T03:38:52.997Z</updated>
+  <updated>2022-04-12T06:27:31.026Z</updated>
   <id>https://1518277259.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>执行上下文、作用域链、闭包</title>
+    <link href="https://1518277259.github.io/2022/04/12/%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE%E3%80%81%E9%97%AD%E5%8C%85/"/>
+    <id>https://1518277259.github.io/2022/04/12/%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE%E3%80%81%E9%97%AD%E5%8C%85/</id>
+    <published>2022-04-12T06:26:26.000Z</published>
+    <updated>2022-04-12T06:27:31.026Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="执行上下文"><a href="#执行上下文" class="headerlink" title="执行上下文"></a>执行上下文</h3><p>执行上下文是评估和执行 JavaScript 代码的环境的抽象概念</p><h4 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h4><ul><li>全局执行上下文</li></ul><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">它创建会执行两件事：创建一个全局的window对象，</span><br><span class="line">并设置this的值等于这个全局的对象。一个程序只会有一个全局对象</span><br></pre></td></tr></table></figure><ul><li>函数执行上下文</li></ul><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">每个函数都有它自己的执行上下文，不过是在函数被调用时创建的；</span><br><span class="line">this的值取决于该函数是怎样被调用的，如果是被一个对象引用调用，指向这个对象，否则指向全局对象</span><br></pre></td></tr></table></figure><ul><li>Eval 函数执行上下文</li></ul><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">执行在 eval 函数内部的代码也会有它属于自己的执行上下文</span><br></pre></td></tr></table></figure><h4 id="执行顺序"><a href="#执行顺序" class="headerlink" title="执行顺序"></a>执行顺序</h4><p>当 JavaScript 引擎第一次遇到你的脚本时，它会创建一个全局的执行上下文并且压入当前执行栈。每当引擎遇到一个函数调用，它会为该函数创建一个新的执行上下文并压入栈的顶部。<br/></p><p>引擎会执行那些执行上下文位于栈顶的函数。当该函数执行结束时，执行上下文从栈中弹出，控制流程到达当前栈中的下一个上下文。</p><h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><p>作用域决定这个变量的生命周期及其可见性。 当我们创建了一个函数或者 {} 块，就会生成一个新的作用域</p><h3 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h3><p>当查找变量的时候，会先从当前上下文的变量对象中查找，如果没有找到，就会从父级(词法层面上的父级)执行上下文的变量对象中查找，一直找到全局上下文的变量对象，也就是全局对象。这样由多个执行上下文的变量对象构成的链表就叫做作用域链。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;执行上下文&quot;&gt;&lt;a href=&quot;#执行上下文&quot; class=&quot;headerlink&quot; title=&quot;执行上下文&quot;&gt;&lt;/a&gt;执行上下文&lt;/h3&gt;&lt;p&gt;执行上下文是评估和执行 JavaScript 代码的环境的抽象概念&lt;/p&gt;
+&lt;h4 id=&quot;类型&quot;&gt;&lt;a href=</summary>
+      
+    
+    
+    
+    <category term="js" scheme="https://1518277259.github.io/categories/js/"/>
+    
+    
+    <category term="js" scheme="https://1518277259.github.io/tags/js/"/>
+    
+  </entry>
   
   <entry>
     <title>在地址栏里输入一个地址回车会发生哪些事情</title>
