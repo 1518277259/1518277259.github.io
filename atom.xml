@@ -6,7 +6,7 @@
   <link href="https://1518277259.github.io/atom.xml" rel="self"/>
   
   <link href="https://1518277259.github.io/"/>
-  <updated>2022-04-14T02:38:45.782Z</updated>
+  <updated>2022-04-14T03:02:26.238Z</updated>
   <id>https://1518277259.github.io/</id>
   
   <author>
@@ -21,14 +21,14 @@
     <link href="https://1518277259.github.io/2022/04/14/%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE-1/"/>
     <id>https://1518277259.github.io/2022/04/14/%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE-1/</id>
     <published>2022-04-14T02:19:01.000Z</published>
-    <updated>2022-04-14T02:38:45.782Z</updated>
+    <updated>2022-04-14T03:02:26.238Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h3><p><img src="/.io//%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE-1%5Cprototype.png" alt="LeNet"></p><h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><p>每个对象拥有一个原型对象，通过 __proto__ 指针指向上一个原型 ，并从中继承方法和属性，同时原型对象也可能拥有原型，这样一层一层，最终指向 null。这种关系被称为原型链 (prototype chain)，通过原型链一个对象会拥有定义在其他对象中的属性和方法。</p><h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><ul><li>Symbol 作为构造函数来说并不完整，因为不支持语法 new Symbol()，但其原型上拥有 constructor 属性，即 Symbol.prototype.constructor。</li><li>引用类型 constructor 属性值是可以修改的，但是对于基本类型来说是只读的，当然 null 和 undefined 没有 constructor 属性。</li><li>__proto__ 是每个实例上都有的属性，prototype 是构造函数的属性，这两个并不一样，但  p.__proto__  和 Parent.prototype 指向同一个对象。</li><li>__proto__ 属性在 ES6 时被标准化，但因为性能问题并不推荐使用，推荐使用 Object.getPrototypeOf()。</li><li>每个对象拥有一个原型对象，通过 __proto__ 指针指向上一个原型 ，并从中继承方法和属性，同时原型对象也可能拥有原型，这样一层一层，最终指向 null，这就是原型链。</li></ul>]]></content>
+    <content type="html"><![CDATA[<h3 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h3><img src="/2022/04/14/%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE-1/prototype.png" class title="This is an test image"><h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><p>每个对象拥有一个原型对象，通过 __proto__ 指针指向上一个原型 ，并从中继承方法和属性，同时原型对象也可能拥有原型，这样一层一层，最终指向 null。这种关系被称为原型链 (prototype chain)，通过原型链一个对象会拥有定义在其他对象中的属性和方法。</p><h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><ul><li>Symbol 作为构造函数来说并不完整，因为不支持语法 new Symbol()，但其原型上拥有 constructor 属性，即 Symbol.prototype.constructor。</li><li>引用类型 constructor 属性值是可以修改的，但是对于基本类型来说是只读的，当然 null 和 undefined 没有 constructor 属性。</li><li>__proto__ 是每个实例上都有的属性，prototype 是构造函数的属性，这两个并不一样，但  p.__proto__  和 Parent.prototype 指向同一个对象。</li><li>__proto__ 属性在 ES6 时被标准化，但因为性能问题并不推荐使用，推荐使用 Object.getPrototypeOf()。</li><li>每个对象拥有一个原型对象，通过 __proto__ 指针指向上一个原型 ，并从中继承方法和属性，同时原型对象也可能拥有原型，这样一层一层，最终指向 null，这就是原型链。</li></ul>]]></content>
     
     
       
       
-    <summary type="html">&lt;h3 id=&quot;原型&quot;&gt;&lt;a href=&quot;#原型&quot; class=&quot;headerlink&quot; title=&quot;原型&quot;&gt;&lt;/a&gt;原型&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;/.io//%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE</summary>
+    <summary type="html">&lt;h3 id=&quot;原型&quot;&gt;&lt;a href=&quot;#原型&quot; class=&quot;headerlink&quot; title=&quot;原型&quot;&gt;&lt;/a&gt;原型&lt;/h3&gt;&lt;img src=&quot;/2022/04/14/%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93</summary>
       
     
     
@@ -377,7 +377,7 @@
     <link href="https://1518277259.github.io/2022/03/29/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/"/>
     <id>https://1518277259.github.io/2022/03/29/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/</id>
     <published>2022-03-29T06:09:54.000Z</published>
-    <updated>2022-04-11T02:27:48.037Z</updated>
+    <updated>2022-04-14T03:02:59.648Z</updated>
     
     <content type="html"><![CDATA[<h3 id="基础配置"><a href="#基础配置" class="headerlink" title="基础配置"></a>基础配置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">npm i -g hexo</span><br><span class="line"></span><br><span class="line">hexo init</span><br><span class="line"></span><br><span class="line">npm i hexo-server</span><br><span class="line"></span><br><span class="line">hexo-server</span><br></pre></td></tr></table></figure><h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><p>1.获取模板</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo.theme.getView(path);</span><br></pre></td></tr></table></figure><ol start="2"><li>设置模板</li></ol><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo.theme.setView(path, data);</span><br></pre></td></tr></table></figure><p>3.移除模板</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo.theme.removeView(path);</span><br></pre></td></tr></table></figure><h3 id="配置完成打包上传"><a href="#配置完成打包上传" class="headerlink" title="配置完成打包上传"></a>配置完成打包上传</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean     //删除上次打包</span><br><span class="line">hexo generate   //打包</span><br><span class="line">hexo deploy    /上传</span><br></pre></td></tr></table></figure>]]></content>
     
