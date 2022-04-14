@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://1518277259.github.io/2022/04/14/%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE/</loc>
+    <loc>https://1518277259.github.io/2022/04/14/%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE-1/</loc>
     
     <lastmod>2022-04-14</lastmod>
     
@@ -208,14 +208,14 @@
   </url>
   
   <url>
-    <loc>https://1518277259.github.io/tags/hexo/</loc>
+    <loc>https://1518277259.github.io/tags/%E5%89%8D%E7%AB%AF/</loc>
     <lastmod>2022-04-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://1518277259.github.io/tags/%E5%89%8D%E7%AB%AF/</loc>
+    <loc>https://1518277259.github.io/tags/hexo/</loc>
     <lastmod>2022-04-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
