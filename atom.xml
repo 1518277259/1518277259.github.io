@@ -6,7 +6,7 @@
   <link href="https://1518277259.github.io/atom.xml" rel="self"/>
   
   <link href="https://1518277259.github.io/"/>
-  <updated>2022-04-14T03:02:26.238Z</updated>
+  <updated>2022-04-15T01:15:12.696Z</updated>
   <id>https://1518277259.github.io/</id>
   
   <author>
@@ -17,11 +17,35 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Promise</title>
+    <link href="https://1518277259.github.io/2022/04/15/Promise/"/>
+    <id>https://1518277259.github.io/2022/04/15/Promise/</id>
+    <published>2022-04-15T01:14:04.000Z</published>
+    <updated>2022-04-15T01:15:12.696Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>Promise 是异步编程的一种解决方案： 从语法上讲，promise是一个对象，从它可以获取异步操作的消息；从本意上讲，它是承诺，承诺它过一段时间会给你一个结果。</p><h3 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h3><ul><li>在 pending 状态，promise 可以切换到 fulfilled 或 rejected。</li><li>在 fulfilled 状态，不能迁移到其它状态，必须有个不可变的 value。</li><li>在 rejected 状态，不能迁移到其它状态，必须有个不可变的 reason。</li><li></li></ul><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">MyPromise</span>(<span class="params">fn</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> self = <span class="variable language_">this</span>; <span class="comment">// 缓存当前promise实例</span></span><br><span class="line">    self.<span class="property">value</span> = <span class="literal">null</span>; <span class="comment">//成功时的值</span></span><br><span class="line">    self.<span class="property">error</span> = <span class="literal">null</span>; <span class="comment">//失败时的原因</span></span><br><span class="line">    self.<span class="property">onFulfilled</span> = <span class="literal">null</span>; <span class="comment">//成功的回调函数</span></span><br><span class="line">    self.<span class="property">onRejected</span> = <span class="literal">null</span>; <span class="comment">//失败的回调函数</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">resolve</span>(<span class="params">value</span>) &#123;</span><br><span class="line">        self.<span class="property">value</span> = value;</span><br><span class="line">        self.<span class="title function_">onFulfilled</span>(self.<span class="property">value</span>);<span class="comment">//resolve时执行成功回调</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">reject</span>(<span class="params">error</span>) &#123;</span><br><span class="line">        self.<span class="property">error</span> = error;</span><br><span class="line">        self.<span class="title function_">onRejected</span>(self.<span class="property">error</span>)<span class="comment">//reject时执行失败回调</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">fn</span>(resolve, reject);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">MyPromise</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">then</span> = <span class="keyword">function</span>(<span class="params">onFulfilled, onRejected</span>) &#123;</span><br><span class="line">    <span class="comment">//在这里给promise实例注册成功和失败回调</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">onFulfilled</span> = onFulfilled;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">onRejected</span> = onRejected;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = <span class="title class_">MyPromise</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h3&gt;&lt;p&gt;Promise 是异步编程的一种解决方案： 从语法上讲，promise是一个对象，从它可以获取异步操作的消息；从本意上讲，它是承诺，承诺它过</summary>
+      
+    
+    
+    
+    <category term="JS" scheme="https://1518277259.github.io/categories/JS/"/>
+    
+    
+    <category term="JS" scheme="https://1518277259.github.io/tags/JS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>原型和原型链</title>
     <link href="https://1518277259.github.io/2022/04/14/%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE-1/"/>
     <id>https://1518277259.github.io/2022/04/14/%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE-1/</id>
     <published>2022-04-14T02:19:01.000Z</published>
-    <updated>2022-04-14T03:02:26.238Z</updated>
+    <updated>2022-04-14T03:07:14.043Z</updated>
     
     <content type="html"><![CDATA[<h3 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h3><img src="/2022/04/14/%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE-1/prototype.png" class title="This is an test image"><h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><p>每个对象拥有一个原型对象，通过 __proto__ 指针指向上一个原型 ，并从中继承方法和属性，同时原型对象也可能拥有原型，这样一层一层，最终指向 null。这种关系被称为原型链 (prototype chain)，通过原型链一个对象会拥有定义在其他对象中的属性和方法。</p><h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><ul><li>Symbol 作为构造函数来说并不完整，因为不支持语法 new Symbol()，但其原型上拥有 constructor 属性，即 Symbol.prototype.constructor。</li><li>引用类型 constructor 属性值是可以修改的，但是对于基本类型来说是只读的，当然 null 和 undefined 没有 constructor 属性。</li><li>__proto__ 是每个实例上都有的属性，prototype 是构造函数的属性，这两个并不一样，但  p.__proto__  和 Parent.prototype 指向同一个对象。</li><li>__proto__ 属性在 ES6 时被标准化，但因为性能问题并不推荐使用，推荐使用 Object.getPrototypeOf()。</li><li>每个对象拥有一个原型对象，通过 __proto__ 指针指向上一个原型 ，并从中继承方法和属性，同时原型对象也可能拥有原型，这样一层一层，最终指向 null，这就是原型链。</li></ul>]]></content>
     
