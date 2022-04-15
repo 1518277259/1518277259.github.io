@@ -6,7 +6,7 @@
   <link href="https://1518277259.github.io/atom.xml" rel="self"/>
   
   <link href="https://1518277259.github.io/"/>
-  <updated>2022-04-15T01:15:12.696Z</updated>
+  <updated>2022-04-15T01:38:33.621Z</updated>
   <id>https://1518277259.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>深拷贝和浅拷贝</title>
+    <link href="https://1518277259.github.io/2022/04/15/%E6%B7%B1%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B5%85%E6%8B%B7%E8%B4%9D/"/>
+    <id>https://1518277259.github.io/2022/04/15/%E6%B7%B1%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B5%85%E6%8B%B7%E8%B4%9D/</id>
+    <published>2022-04-15T01:37:43.000Z</published>
+    <updated>2022-04-15T01:38:33.621Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h3><p>只复制引用，而未复制真正的值</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">const originArray = [1,2,3,4,5];</span><br><span class="line">const originObj = &#123;a:&#x27;a&#x27;,b:&#x27;b&#x27;,c:[1,2,3],d:&#123;dd:&#x27;dd&#x27;&#125;&#125;;</span><br><span class="line"></span><br><span class="line">const cloneArray = originArray;</span><br><span class="line">const cloneObj = originObj;</span><br><span class="line"></span><br><span class="line">console.log(cloneArray); // [1,2,3,4,5]</span><br><span class="line">console.log(originObj); // &#123;a:&#x27;a&#x27;,b:&#x27;b&#x27;,c:Array[3],d:&#123;dd:&#x27;dd&#x27;&#125;&#125;</span><br><span class="line"></span><br><span class="line">cloneArray.push(6);</span><br><span class="line">cloneObj.a = &#123;aa:&#x27;aa&#x27;&#125;;</span><br><span class="line"></span><br><span class="line">console.log(cloneArray); // [1,2,3,4,5,6]</span><br><span class="line">console.log(originArray); // [1,2,3,4,5,6]</span><br><span class="line"></span><br><span class="line">console.log(cloneObj); // &#123;a:&#123;aa:&#x27;aa&#x27;&#125;,b:&#x27;b&#x27;,c:Array[3],d:&#123;dd:&#x27;dd&#x27;&#125;&#125;</span><br><span class="line">console.log(originArray); // &#123;a:&#123;aa:&#x27;aa&#x27;&#125;,b:&#x27;b&#x27;,c:Array[3],d:&#123;dd:&#x27;dd&#x27;&#125;&#125;</span><br></pre></td></tr></table></figure><h3 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h3><p>深拷贝就是对目标的完全拷贝，不像浅拷贝那样只是复制了一层引用，就连值也都复制了。只要进行了深拷贝，它们老死不相往来，谁也不会影响谁。</p><h4 id="实现深拷贝的两种方法"><a href="#实现深拷贝的两种方法" class="headerlink" title="实现深拷贝的两种方法"></a>实现深拷贝的两种方法</h4><p><strong>JSON.stringify&#x2F;parse的方法</strong></p><p>如果对象含有一个函数时，不能用这个方法进行深拷贝，因为undefine、function、symbol会在转换过程中被忽略</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">const originArray = [1,2,3,4,5];</span><br><span class="line">const cloneArray = JSON.parse(JSON.stringify(originArray));</span><br><span class="line">console.log(cloneArray === originArray); // false</span><br><span class="line"></span><br><span class="line">const originObj = &#123;a:&#x27;a&#x27;,b:&#x27;b&#x27;,c:[1,2,3],d:&#123;dd:&#x27;dd&#x27;&#125;&#125;;</span><br><span class="line">const cloneObj = JSON.parse(JSON.stringify(originObj));</span><br><span class="line">console.log(cloneObj === originObj); // false</span><br><span class="line"></span><br><span class="line">cloneObj.a = &#x27;aa&#x27;;</span><br><span class="line">cloneObj.c = [1,1,1];</span><br><span class="line">cloneObj.d.dd = &#x27;doubled&#x27;;</span><br><span class="line"></span><br><span class="line">console.log(cloneObj); // &#123;a:&#x27;aa&#x27;,b:&#x27;b&#x27;,c:[1,1,1],d:&#123;dd:&#x27;doubled&#x27;&#125;&#125;;</span><br><span class="line">console.log(originObj); // &#123;a:&#x27;a&#x27;,b:&#x27;b&#x27;,c:[1,2,3],d:&#123;dd:&#x27;dd&#x27;&#125;&#125;;</span><br></pre></td></tr></table></figure><p><strong>递归的方法</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function deepClone(source)&#123;</span><br><span class="line">  const targetObj = source.constructor === Array ? [] : &#123;&#125;; // 判断复制的目标是数组还是对象</span><br><span class="line">  for(let keys in source)&#123; // 遍历目标</span><br><span class="line">    if(source.hasOwnProperty(keys))&#123;</span><br><span class="line">      if(source[keys] &amp;&amp; typeof source[keys] === &#x27;object&#x27;)&#123; // 如果值是对象，就递归一下</span><br><span class="line">        targetObj[keys] = source[keys].constructor === Array ? [] : &#123;&#125;;</span><br><span class="line">        targetObj[keys] = deepClone(source[keys]);</span><br><span class="line">      &#125;else&#123; // 如果不是，就直接赋值</span><br><span class="line">        targetObj[keys] = source[keys];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; </span><br><span class="line">  &#125;</span><br><span class="line">  return targetObj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul><li>赋值运算符 &#x3D; 实现的是浅拷贝，只拷贝对象的引用值；</li><li>JavaScript 中数组和对象自带的拷贝方法都是“首层浅拷贝”；</li><li>JSON.stringify 实现的是深拷贝，但是对目标对象有要求；</li><li>若想真正意义上的深拷贝，请递归。</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;浅拷贝&quot;&gt;&lt;a href=&quot;#浅拷贝&quot; class=&quot;headerlink&quot; title=&quot;浅拷贝&quot;&gt;&lt;/a&gt;浅拷贝&lt;/h3&gt;&lt;p&gt;只复制引用，而未复制真正的值&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;</summary>
+      
+    
+    
+    
+    <category term="JS" scheme="https://1518277259.github.io/categories/JS/"/>
+    
+    
+    <category term="JS" scheme="https://1518277259.github.io/tags/JS/"/>
+    
+  </entry>
   
   <entry>
     <title>Promise</title>
