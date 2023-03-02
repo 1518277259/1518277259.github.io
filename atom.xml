@@ -6,7 +6,7 @@
   <link href="https://1518277259.github.io/atom.xml" rel="self"/>
   
   <link href="https://1518277259.github.io/"/>
-  <updated>2023-03-02T13:50:14.576Z</updated>
+  <updated>2023-03-02T14:04:42.841Z</updated>
   <id>https://1518277259.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Symbol</title>
+    <link href="https://1518277259.github.io/2023/03/01/symbol/"/>
+    <id>https://1518277259.github.io/2023/03/01/symbol/</id>
+    <published>2023-03-01T08:24:51.000Z</published>
+    <updated>2023-03-02T14:04:42.841Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Symbol解析"><a href="#Symbol解析" class="headerlink" title="Symbol解析"></a>Symbol解析</h1><h2 id="什么是symbol"><a href="#什么是symbol" class="headerlink" title="什么是symbol"></a>什么是symbol</h2><p>Symbol是ES6中新增的一种数据类型, 被划分到了基本数据类型中</p><h2 id="Symbol的作用"><a href="#Symbol的作用" class="headerlink" title="Symbol的作用"></a>Symbol的作用</h2><p>用来表示一个独一无二的值</p><h2 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a=<span class="title class_">Symbol</span>(‘标识字符串’);</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="为什么需要Symbol"><a href="#为什么需要Symbol" class="headerlink" title="为什么需要Symbol?"></a>为什么需要Symbol?</h2><p>为了避免第三方框架的同名属性被覆盖,在企业开发中如果需要对一些第三方的插件、框架进行自定义的时候<br>可能会因为添加了同名的属性或者方法, 将框架中原有的属性或者方法覆盖掉<br>为了避免这种情况的发生, 框架的作者或者我们就可以使用Symbol作为属性或者方法的名称</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//后面的括号可以给symbol做上标记便于识别</span></span><br><span class="line"><span class="keyword">let</span> name=<span class="title class_">Symbol</span>(<span class="string">&#x27;name&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> say=<span class="title class_">Symbol</span>(<span class="string">&#x27;say&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> obj= &#123;</span><br><span class="line">  <span class="comment">//如果想 使用变量作为对象属性的名称，必须加上中括号，.运算符后面跟着的都是字符串</span></span><br><span class="line">  [name]: <span class="string">&#x27;lnj&#x27;</span>,</span><br><span class="line">  [say]: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;say&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.<span class="property">name</span>=<span class="string">&#x27;it666&#x27;</span>;</span><br><span class="line">obj[<span class="title class_">Symbol</span>(<span class="string">&#x27;name&#x27;</span>)]=<span class="string">&#x27;it666&#x27;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj) <span class="comment">// &#123;name: &quot;it666&quot; Symbol(name): &quot;lnj&quot; Symbol(name): &quot;it666&quot; Symbol(say): ƒ ()&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Symbol解析&quot;&gt;&lt;a href=&quot;#Symbol解析&quot; class=&quot;headerlink&quot; title=&quot;Symbol解析&quot;&gt;&lt;/a&gt;Symbol解析&lt;/h1&gt;&lt;h2 id=&quot;什么是symbol&quot;&gt;&lt;a href=&quot;#什么是symbol&quot; class=&quot;he</summary>
+      
+    
+    
+    
+    <category term="JS" scheme="https://1518277259.github.io/categories/JS/"/>
+    
+    
+    <category term="JS" scheme="https://1518277259.github.io/tags/JS/"/>
+    
+  </entry>
   
   <entry>
     <title>浏览器解析</title>
@@ -479,32 +503,6 @@
     <summary type="html">&lt;ul&gt;
 &lt;li&gt;数据传输方式不同：GET 请求通过 URL 传输数据，而 POST 的数据通过请求体传输。&lt;/li&gt;
 &lt;li&gt;安全性不同：POST 的数据因为在请求主体内，所以有一定的安全性保证，而 GET 的数据在 URL 中，通过历史记录，缓存很容易查到数据信息。&lt;/li&gt;</summary>
-      
-    
-    
-    
-    <category term="http" scheme="https://1518277259.github.io/categories/http/"/>
-    
-    
-    <category term="http" scheme="https://1518277259.github.io/tags/http/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTTP和HTTPS的区别</title>
-    <link href="https://1518277259.github.io/2022/04/11/HTTP%E5%92%8CHTTPS%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
-    <id>https://1518277259.github.io/2022/04/11/HTTP%E5%92%8CHTTPS%E7%9A%84%E5%8C%BA%E5%88%AB/</id>
-    <published>2022-04-11T02:54:56.000Z</published>
-    <updated>2022-04-11T03:03:29.058Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li>http 是客户端和服务器请求和应答的标准的(TCP)超文本传输协议，使浏览器更高效，网络传输减少；https 简单来说就是 http+SSL，作用 1 是建立信息安全通道，保证数据传输安全，2 是确认网站真实性</li><li>https 协议需要证书，一般免费证书少，需要一定费用；</li><li>http 是超文本传输协议，信息是明文传输；https 则是具有 ssl 加密的传输协议</li><li>连接方式不同，端口不同，http:80 https:443</li><li>http 连接是无状态的；https 协议是有 SSL+Http 协议构成的可进行加密传输、身份认证的网络协议，比 http 协议更安全。</li></ol>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;ol&gt;
-&lt;li&gt;http 是客户端和服务器请求和应答的标准的(TCP)超文本传输协议，使浏览器更高效，网络传输减少；https 简单来说就是 http+SSL，作用 1 是建立信息安全通道，保证数据传输安全，2 是确认网站真实性&lt;/li&gt;
-&lt;li&gt;https 协议需要证书，一般</summary>
       
     
     

@@ -1,0 +1,141 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="baidu-site-verification" content="1EB8XoOl0C"><meta name="google-site-verification" content="K7thEgdLm0UfRWJ5MGdF7sCcjClSzAlxFLPv2Oz5CGM"><title> Symbol · ysp博客</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="symbol"><meta name="keywords" content="js、 symbol"><meta name="author" content="杨书平"><link rel="short icon" href="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/favicon.ico"><link rel="stylesheet" href="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/bubuzou.css"><link rel="search" type="application/opensearchdescription+xml" href="https://1518277259.github.io/atom.xml" title="ysp博客"><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script><meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="ysp博客" type="application/atom+xml">
+</head><body><header><div class="header row"> <a href="/" class="logo-link"><img src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/logo.png"></a><ul id="nav_list" class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" data-hover="博文" class="nav-list-link">博文</a></li><li class="nav-list-item"><a href="/archives/" target="_self" data-hover="归档" class="nav-list-link">归档</a></li><li class="nav-list-item"><a href="/live/" target="_self" data-hover="生活" class="nav-list-link">生活</a></li><li class="nav-list-item"><a href="/read/" target="_self" data-hover="读书" class="nav-list-link">读书</a></li><li class="nav-list-item"><a href="/about/" target="_self" data-hover="关于" class="nav-list-link">关于</a></li></ul><div class="search"><a id="search_btn" href="#search"></a></div><div id="nav_btn" class="nav-btn"><span></span><span></span><span></span></div></div></header><div class="row scroll-con"><section class="container"><!-- for archive page--><div id="postAr" class="post"><article class="post-block"><h1 class="post-title">Symbol</h1><div class="post-info">2023-03-01<p class="visit"><i data-identity="2023/03/01/symbol/" class="article-timer"></i><span>次访问</span></p></div><div class="post-content"><h1 id="Symbol解析"><a href="#Symbol解析" class="headerlink" title="Symbol解析"></a>Symbol解析</h1><h2 id="什么是symbol"><a href="#什么是symbol" class="headerlink" title="什么是symbol"></a>什么是symbol</h2><p>Symbol是ES6中新增的一种数据类型, 被划分到了基本数据类型中</p>
+<h2 id="Symbol的作用"><a href="#Symbol的作用" class="headerlink" title="Symbol的作用"></a>Symbol的作用</h2><p>用来表示一个独一无二的值</p>
+<h2 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a=<span class="title class_">Symbol</span>(‘标识字符串’);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="为什么需要Symbol"><a href="#为什么需要Symbol" class="headerlink" title="为什么需要Symbol?"></a>为什么需要Symbol?</h2><p>为了避免第三方框架的同名属性被覆盖,在企业开发中如果需要对一些第三方的插件、框架进行自定义的时候<br>可能会因为添加了同名的属性或者方法, 将框架中原有的属性或者方法覆盖掉<br>为了避免这种情况的发生, 框架的作者或者我们就可以使用Symbol作为属性或者方法的名称</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//后面的括号可以给symbol做上标记便于识别</span></span><br><span class="line"><span class="keyword">let</span> name=<span class="title class_">Symbol</span>(<span class="string">&#x27;name&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> say=<span class="title class_">Symbol</span>(<span class="string">&#x27;say&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> obj= &#123;</span><br><span class="line">  <span class="comment">//如果想 使用变量作为对象属性的名称，必须加上中括号，.运算符后面跟着的都是字符串</span></span><br><span class="line">  [name]: <span class="string">&#x27;lnj&#x27;</span>,</span><br><span class="line">  [say]: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;say&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.<span class="property">name</span>=<span class="string">&#x27;it666&#x27;</span>;</span><br><span class="line">obj[<span class="title class_">Symbol</span>(<span class="string">&#x27;name&#x27;</span>)]=<span class="string">&#x27;it666&#x27;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj) <span class="comment">// &#123;name: &quot;it666&quot; Symbol(name): &quot;lnj&quot; Symbol(name): &quot;it666&quot; Symbol(say): ƒ ()&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/2023/02/28/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%A7%A3%E6%9E%90/" title="浏览器解析" class="next">NEXT</a></div><a href="#comment" class="comment-anchor"></a><div id="vcomments"></div><script>new Valine({
+    el: "#vcomments",
+    appId: "aD8jJBpu4oew3ovNY73z6Rdq-gzGzoHsz",
+    appKey: "FdzS5SOPHdhYQoEUngQ8K2QW",
+    notify: false,
+    verify: false,
+    avatar: "robohash",
+    visitor: true,
+    placeholder: "随便说点什么～.～",
+});</script><div class="copyright"><p>© 2022 - 2023 <a target="_blank">杨书平</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;"> </span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/jquery-1.8.2.min.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/articleCatalog.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script><script>const valineAPI = (() => {
+try {
+    AV.init("aD8jJBpu4oew3ovNY73z6Rdq-gzGzoHsz", "FdzS5SOPHdhYQoEUngQ8K2QW");
+} catch(error) {}
+const isExist = (identity) => {
+    identity = identity || getRealPath();
+    let query = new AV.Query('Timer');
+    return new Promise((resolve, reject) => {
+    query.equalTo("identity", identity);
+    query.find().then(results => {
+        resolve(results.length > 0);
+    }, error => reject(error));
+    })
+}
+
+const _get = (identity) => {
+    let query = null;
+    if(identity && identity instanceof Array){
+    let querys = [];
+    for(let i = 0; i < identity.length; ++i) {
+        querys[i] = new AV.Query('Timer');
+        querys[i].equalTo('identity', identity[i]);
+    }
+    query = AV.Query.or.apply(null ,querys);
+    } else {
+    identity = identity || getRealPath();
+    query = new AV.Query("Timer");
+    query.equalTo("identity", identity);
+    }
+
+    return new Promise((resolve, reject) => {
+    query.find()
+    .then(results => resolve(results))
+    .catch(error => reject(error))
+    })
+}
+
+const create = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+    let Todo = AV.Object.extend('Timer');
+    let todo = new Todo();
+    todo.set("times", 1);
+    todo.set("identity", identity);
+    todo.save().then(res => resolve(true), error => reject(error));
+    })
+}
+
+const update = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+    let query = new AV.Query('Timer');
+    query.equalTo("identity", identity);
+    query.find().then(todos => {
+        todos.forEach(todo => {
+        todo.set("times", todo.attributes.times + 1);
+        });
+        return AV.Object.saveAll(todos);
+    }).then(todos => resolve(true), error => reject(error));
+    })
+}
+
+return {
+    isExist,
+    _get,
+    update,
+    create
+}
+})()
+
+const calcAndWriteTimes = () => {
+let isPost = true;
+
+let timerAllDOM = document.querySelectorAll(".article-timer");
+
+if(isPost) {
+    let identity = timerAllDOM[0].getAttribute("data-identity");
+    valineAPI.isExist(identity)
+    .then(exist => {
+    if(exist) {
+        return valineAPI.update(identity);
+    }
+    return new Promise(resolve => resolve(true));
+    })
+    .then( succuess => valineAPI._get(identity))
+    .then( result => timerAllDOM[0].innerText = result[0].attributes.times)
+    .catch(error => console.log(error.message))
+    return ;
+}
+
+let timerDOMCache = {};
+
+for(let timerDOM of timerAllDOM) {
+    let identity = timerDOM.getAttribute("data-identity");
+    if(timerDOMCache.hasOwnProperty(identity)){
+    timerDOMCache[identity].dom.push(timerDOM);
+    }else{
+    timerDOMCache[identity] = {
+        dom: [timerDOM],
+        times: undefined
+    };
+    }
+}
+
+let identities = Object.keys(timerDOMCache);
+valineAPI._get(identities).then(results => {
+    for(let result of results) {
+    let {identity, times} = result.attributes;
+    timerDOMCache[identity].times = times;
+    timerDOMCache[identity].dom.map(item => item.innerText = times);
+    }
+    for(let identity of identities) {
+    if(timerDOMCache[identity].times){
+        continue;
+    }
+    timerDOMCache[identity].dom.map(item => item.innerText = 1);
+    valineAPI.create(identity);
+    }
+}).catch(error => console.log(error.message))
+}
+
+if(true){
+calcAndWriteTimes();
+}</script></body></html>
