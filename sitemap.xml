@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://1518277259.github.io/2023/02/17/webpack%E8%A7%A3%E6%9E%90/</loc>
+    
+    <lastmod>2023-03-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://1518277259.github.io/2023/02/16/%E6%A8%A1%E5%9D%97%E5%8C%96%E6%96%B9%E6%A1%88/</loc>
     
     <lastmod>2023-03-02</lastmod>
@@ -235,6 +244,13 @@
   </url>
   
   <url>
+    <loc>https://1518277259.github.io/tags/webpack/</loc>
+    <lastmod>2023-03-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://1518277259.github.io/tags/%E5%89%8D%E7%AB%AF/</loc>
     <lastmod>2023-03-02</lastmod>
     <changefreq>weekly</changefreq>
@@ -287,6 +303,13 @@
   
   <url>
     <loc>https://1518277259.github.io/categories/git/</loc>
+    <lastmod>2023-03-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://1518277259.github.io/categories/webpack/</loc>
     <lastmod>2023-03-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
