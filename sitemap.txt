@@ -32,7 +32,6 @@ https://1518277259.github.io/tags/webpack/
 https://1518277259.github.io/tags/websocket/
 https://1518277259.github.io/tags/%E5%89%8D%E7%AB%AF/
 https://1518277259.github.io/tags/hexo/
-https://1518277259.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/
 https://1518277259.github.io/tags/%E6%A8%A1%E5%9D%97/
 https://1518277259.github.io/categories/CSS/
 https://1518277259.github.io/categories/http/
@@ -42,5 +41,4 @@ https://1518277259.github.io/categories/git/
 https://1518277259.github.io/categories/webpack/
 https://1518277259.github.io/categories/websocket/
 https://1518277259.github.io/categories/hexo/
-https://1518277259.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/
 https://1518277259.github.io/categories/%E6%A8%A1%E5%9D%97/
