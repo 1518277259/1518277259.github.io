@@ -1,0 +1,156 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="baidu-site-verification" content="1EB8XoOl0C"><meta name="google-site-verification" content="K7thEgdLm0UfRWJ5MGdF7sCcjClSzAlxFLPv2Oz5CGM"><title> HTTP 强缓存和协商缓存 · ysp博客</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="HTTP 强缓存和协商缓存"><meta name="keywords" content="http、缓存"><meta name="author" content="杨书平"><link rel="short icon" href="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/favicon.ico"><link rel="stylesheet" href="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/bubuzou.css"><link rel="search" type="application/opensearchdescription+xml" href="https://1518277259.github.io/atom.xml" title="ysp博客"><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script><meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="ysp博客" type="application/atom+xml">
+</head><body><header><div class="header row"> <a href="/" class="logo-link"><img src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/logo.png"></a><ul id="nav_list" class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" data-hover="博文" class="nav-list-link">博文</a></li><li class="nav-list-item"><a href="/archives/" target="_self" data-hover="归档" class="nav-list-link">归档</a></li><li class="nav-list-item"><a href="/live/" target="_self" data-hover="生活" class="nav-list-link">生活</a></li><li class="nav-list-item"><a href="/read/" target="_self" data-hover="读书" class="nav-list-link">读书</a></li><li class="nav-list-item"><a href="/about/" target="_self" data-hover="关于" class="nav-list-link">关于</a></li></ul><div class="search"><a id="search_btn" href="#search"></a></div><div id="nav_btn" class="nav-btn"><span></span><span></span><span></span></div></div></header><div class="row scroll-con"><section class="container"><!-- for archive page--><div id="postAr" class="post"><article class="post-block"><h1 class="post-title">HTTP 强缓存和协商缓存</h1><div class="post-info">2023-03-01<p class="visit"><i data-identity="2023/03/01/HTTP强缓存和协商缓存/" class="article-timer"></i><span>次访问</span></p></div><div class="post-content"><h1 id="http-强缓存和协商缓存"><a href="#http-强缓存和协商缓存" class="headerlink" title="http 强缓存和协商缓存"></a>http 强缓存和协商缓存</h1><h2 id="一、缓存介绍"><a href="#一、缓存介绍" class="headerlink" title="一、缓存介绍"></a>一、缓存介绍</h2><h3 id="1、什么是缓存？"><a href="#1、什么是缓存？" class="headerlink" title="1、什么是缓存？"></a>1、什么是缓存？</h3><p>缓存是一种保存资源副本并在下次请求时直接使用该副本的技术。</p>
+<h3 id="2、为什么需要缓存？"><a href="#2、为什么需要缓存？" class="headerlink" title="2、为什么需要缓存？"></a>2、为什么需要缓存？</h3><p>如果没有缓存的话，每次网络请求都要加载大量的图片和资源，这会使页面的加载变慢许多。<br>缓存的目的就是为了尽量减少网络请求的体积和数量，让页面加载的更快，节省带宽，提高访问速度，降低服务器压力。</p>
+<h3 id="3、哪些资源可以被缓存？——静态资源（css、js、img）"><a href="#3、哪些资源可以被缓存？——静态资源（css、js、img）" class="headerlink" title="3、哪些资源可以被缓存？——静态资源（css、js、img）"></a>3、哪些资源可以被缓存？——静态资源（css、js、img）</h3><p>网站的 html 是不能被缓存的。因为网站在使用过程中 html 随时有可能被更新，随时有可能被替换模板。<br>网页的业务数据也是不能被缓存的。比如留言板和评论区，用户随时都可以在底下评论，那数据库的内容就会被频繁被更新。</p>
+<h2 id="二、强制缓存"><a href="#二、强制缓存" class="headerlink" title="二、强制缓存"></a>二、强制缓存</h2><h3 id="1、定义"><a href="#1、定义" class="headerlink" title="1、定义"></a>1、定义</h3><p>强缓存：浏览器不会向服务器发送任何请求，直接从本地缓存中读取文件并返回。</p>
+<ul>
+<li>200 (from memory cache): 不访问服务器，一般已经加载过该资源且缓存存在了内存当中，直接从内存中中读取缓存。浏览器关闭后，数据将不存在（资源被释放掉了），再次打开相同的页面时，不会出现from memory cache。</li>
+<li>200 (from disk cache): 不访问服务器，已经在之间某个时间加载过该资源，直接从磁盘中读取缓存，关闭浏览器后，数组依然存在，因为是存在硬盘当中的，下次打开仍会from disk cache。</li>
+</ul>
+<p><b>注意：</b><br><br>优先访问memory cache,其次是disk cache，最后是请求网络资源</p>
+<h3 id="2、设置强缓存的方式-Expires-amp-Cache-Control"><a href="#2、设置强缓存的方式-Expires-amp-Cache-Control" class="headerlink" title="2、设置强缓存的方式 Expires &amp; Cache-Control"></a>2、设置强缓存的方式 Expires &amp; Cache-Control</h3><ul>
+<li>Expires: 该值是一个GMT时间格式字符串，浏览器进行第一次请求时，服务器会在返回头部加上Expires。下次请求，如果设置了时间，并在设置的时间之前就可以直接读取缓存。</li>
+<li>Cache-Control: 该值是利用max-age判断缓存的生命周期，以秒为单位，如果在该生命周期内，则命中强缓存。比如max-age&#x3D;300 ，则代表在这个请求正确返回时间的5分钟内再次加载资源，就会命中强缓存。</li>
+</ul>
+<h2 id="三、协商缓存"><a href="#三、协商缓存" class="headerlink" title="三、协商缓存"></a>三、协商缓存</h2><h3 id="1、定义-1"><a href="#1、定义-1" class="headerlink" title="1、定义"></a>1、定义</h3><p>协商缓存是一种服务端缓存策略，即通过服务端来判断某件事情是不是可以被缓存。<br>服务端判断客户端的资源，是否和服务端资源一样，如果一致则返回304，反之返回200和最新的资源。</p>
+<h3 id="2、设置协商缓存的方式"><a href="#2、设置协商缓存的方式" class="headerlink" title="2、设置协商缓存的方式"></a>2、设置协商缓存的方式</h3><ol>
+<li>Last-Modified , If-Modified-Since<br><br>Last-Modified 资源最后修改的时间，对应请求头为 If-Modified-Since,Last-Modified 只能精确到秒级</li>
+</ol>
+<p>2）Etag，If-None-Match<br><br>Etag 资源唯一标识，所谓唯一，可以想象是每个人的身份证，具有唯一性；Etag本质是一个字符串；对应请求头为 If-None-Match</p>
+<h2 id="四、刷新操作对缓存的影响"><a href="#四、刷新操作对缓存的影响" class="headerlink" title="四、刷新操作对缓存的影响"></a>四、刷新操作对缓存的影响</h2><h3 id="1、正常操作"><a href="#1、正常操作" class="headerlink" title="1、正常操作"></a>1、正常操作</h3><p>定义： 地址栏输入 url ，跳转链接，前进后退等。<br>对缓存的影响： 强制缓存有效，协商缓存有效。</p>
+<h3 id="2、手动刷新"><a href="#2、手动刷新" class="headerlink" title="2、手动刷新"></a>2、手动刷新</h3><p>定义： F5 ，点击刷新按钮，右击菜单刷新。<br>对缓存的影响： 强制缓存失效，协商缓存有效。</p>
+<h3 id="3、强制刷新"><a href="#3、强制刷新" class="headerlink" title="3、强制刷新"></a>3、强制刷新</h3><p>定义： ctrl + F5 。<br>对缓存的影响： 强制缓存失效，协商缓存失效。</p>
+</div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/2023/03/01/symbol/" title="Symbol" class="prev">PREV</a><a href="/2023/02/28/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%A7%A3%E6%9E%90/" title="浏览器解析" class="next">NEXT</a></div><a href="#comment" class="comment-anchor"></a><div id="vcomments"></div><script>new Valine({
+    el: "#vcomments",
+    appId: "aD8jJBpu4oew3ovNY73z6Rdq-gzGzoHsz",
+    appKey: "FdzS5SOPHdhYQoEUngQ8K2QW",
+    notify: false,
+    verify: false,
+    avatar: "robohash",
+    visitor: true,
+    placeholder: "随便说点什么～.～",
+});</script><div class="copyright"><p>© 2022 - 2023 <a target="_blank">杨书平</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;"> </span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/jquery-1.8.2.min.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/articleCatalog.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script><script>const valineAPI = (() => {
+try {
+    AV.init("aD8jJBpu4oew3ovNY73z6Rdq-gzGzoHsz", "FdzS5SOPHdhYQoEUngQ8K2QW");
+} catch(error) {}
+const isExist = (identity) => {
+    identity = identity || getRealPath();
+    let query = new AV.Query('Timer');
+    return new Promise((resolve, reject) => {
+    query.equalTo("identity", identity);
+    query.find().then(results => {
+        resolve(results.length > 0);
+    }, error => reject(error));
+    })
+}
+
+const _get = (identity) => {
+    let query = null;
+    if(identity && identity instanceof Array){
+    let querys = [];
+    for(let i = 0; i < identity.length; ++i) {
+        querys[i] = new AV.Query('Timer');
+        querys[i].equalTo('identity', identity[i]);
+    }
+    query = AV.Query.or.apply(null ,querys);
+    } else {
+    identity = identity || getRealPath();
+    query = new AV.Query("Timer");
+    query.equalTo("identity", identity);
+    }
+
+    return new Promise((resolve, reject) => {
+    query.find()
+    .then(results => resolve(results))
+    .catch(error => reject(error))
+    })
+}
+
+const create = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+    let Todo = AV.Object.extend('Timer');
+    let todo = new Todo();
+    todo.set("times", 1);
+    todo.set("identity", identity);
+    todo.save().then(res => resolve(true), error => reject(error));
+    })
+}
+
+const update = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+    let query = new AV.Query('Timer');
+    query.equalTo("identity", identity);
+    query.find().then(todos => {
+        todos.forEach(todo => {
+        todo.set("times", todo.attributes.times + 1);
+        });
+        return AV.Object.saveAll(todos);
+    }).then(todos => resolve(true), error => reject(error));
+    })
+}
+
+return {
+    isExist,
+    _get,
+    update,
+    create
+}
+})()
+
+const calcAndWriteTimes = () => {
+let isPost = true;
+
+let timerAllDOM = document.querySelectorAll(".article-timer");
+
+if(isPost) {
+    let identity = timerAllDOM[0].getAttribute("data-identity");
+    valineAPI.isExist(identity)
+    .then(exist => {
+    if(exist) {
+        return valineAPI.update(identity);
+    }
+    return new Promise(resolve => resolve(true));
+    })
+    .then( succuess => valineAPI._get(identity))
+    .then( result => timerAllDOM[0].innerText = result[0].attributes.times)
+    .catch(error => console.log(error.message))
+    return ;
+}
+
+let timerDOMCache = {};
+
+for(let timerDOM of timerAllDOM) {
+    let identity = timerDOM.getAttribute("data-identity");
+    if(timerDOMCache.hasOwnProperty(identity)){
+    timerDOMCache[identity].dom.push(timerDOM);
+    }else{
+    timerDOMCache[identity] = {
+        dom: [timerDOM],
+        times: undefined
+    };
+    }
+}
+
+let identities = Object.keys(timerDOMCache);
+valineAPI._get(identities).then(results => {
+    for(let result of results) {
+    let {identity, times} = result.attributes;
+    timerDOMCache[identity].times = times;
+    timerDOMCache[identity].dom.map(item => item.innerText = times);
+    }
+    for(let identity of identities) {
+    if(timerDOMCache[identity].times){
+        continue;
+    }
+    timerDOMCache[identity].dom.map(item => item.innerText = 1);
+    valineAPI.create(identity);
+    }
+}).catch(error => console.log(error.message))
+}
+
+if(true){
+calcAndWriteTimes();
+}</script></body></html>
