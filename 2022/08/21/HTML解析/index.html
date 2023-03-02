@@ -1,0 +1,165 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="baidu-site-verification" content="1EB8XoOl0C"><meta name="google-site-verification" content="K7thEgdLm0UfRWJ5MGdF7sCcjClSzAlxFLPv2Oz5CGM"><title> HTML解析 · ysp博客</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="HTML解析"><meta name="keywords" content="html、面经"><meta name="author" content="杨书平"><link rel="short icon" href="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/favicon.ico"><link rel="stylesheet" href="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/bubuzou.css"><link rel="search" type="application/opensearchdescription+xml" href="https://1518277259.github.io/atom.xml" title="ysp博客"><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script><meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="ysp博客" type="application/atom+xml">
+</head><body><header><div class="header row"> <a href="/" class="logo-link"><img src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/logo.png"></a><ul id="nav_list" class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" data-hover="博文" class="nav-list-link">博文</a></li><li class="nav-list-item"><a href="/archives/" target="_self" data-hover="归档" class="nav-list-link">归档</a></li><li class="nav-list-item"><a href="/live/" target="_self" data-hover="生活" class="nav-list-link">生活</a></li><li class="nav-list-item"><a href="/read/" target="_self" data-hover="读书" class="nav-list-link">读书</a></li><li class="nav-list-item"><a href="/about/" target="_self" data-hover="关于" class="nav-list-link">关于</a></li></ul><div class="search"><a id="search_btn" href="#search"></a></div><div id="nav_btn" class="nav-btn"><span></span><span></span><span></span></div></div></header><div class="row scroll-con"><section class="container"><!-- for archive page--><div id="postAr" class="post"><article class="post-block"><h1 class="post-title">HTML解析</h1><div class="post-info">2022-08-21<p class="visit"><i data-identity="2022/08/21/HTML解析/" class="article-timer"></i><span>次访问</span></p></div><div class="post-content"><h2 id="HTML-解析"><a href="#HTML-解析" class="headerlink" title="HTML 解析"></a>HTML 解析</h2><p>[toc]</p>
+<h3 id="meta-标签：自动刷新-x2F-跳转"><a href="#meta-标签：自动刷新-x2F-跳转" class="headerlink" title="meta 标签：自动刷新&#x2F;跳转"></a>meta 标签：自动刷新&#x2F;跳转</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//  5s 之后自动跳转到同域下的 page2.html 页面</span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Refresh&quot;</span> <span class="attr">content</span>=<span class="string">&quot;5; URL=page2.html&quot;</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//每隔一分钟就需要刷新页面的大屏幕监控</span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Refresh&quot;</span> <span class="attr">content</span>=<span class="string">&quot;60&quot;</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span>  <span class="comment">&lt;!--H5标准声明，使用 HTML5 doctype，不区分大小写--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span> <span class="attr">lang</span>=<span class="string">”en”</span>&gt;</span> <span class="comment">&lt;!--标准的 lang 属性写法--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">’utf-8′</span>&gt;</span>    <span class="comment">&lt;!--声明文档使用的字符编码--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">”X-UA-Compatible”</span> <span class="attr">content</span>=<span class="string">”IE</span>=<span class="string">edge,chrome</span>=<span class="string">1″/</span>&gt;</span>   <span class="comment">&lt;!--优先使用 IE 最新版本和 Chrome--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">”description”</span> <span class="attr">content</span>=<span class="string">”不超过150个字符”/</span>&gt;</span>       <span class="comment">&lt;!--页面描述--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">”keywords”</span> <span class="attr">content</span>=<span class="string">””/</span>&gt;</span>     <span class="comment">&lt;!-- 页面关键词--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">”author”</span> <span class="attr">content</span>=<span class="string">”name,</span> <span class="attr">email</span>@<span class="attr">gmail.com</span>”/&gt;</span>    <span class="comment">&lt;!--网页作者--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">”robots”</span> <span class="attr">content</span>=<span class="string">”index,follow”/</span>&gt;</span>      <span class="comment">&lt;!--搜索引擎抓取--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">”viewport”</span> <span class="attr">content</span>=<span class="string">”initial-scale</span>=<span class="string">1,</span> <span class="attr">maximum-scale</span>=<span class="string">3,</span> <span class="attr">minimum-scale</span>=<span class="string">1,</span> <span class="attr">user-scalable</span>=<span class="string">no”</span>&gt;</span> <span class="comment">&lt;!--为移动设备添加 viewport--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">”apple-mobile-web-app-title”</span> <span class="attr">content</span>=<span class="string">”标题”</span>&gt;</span> <span class="comment">&lt;!--iOS 设备 begin--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">”apple-mobile-web-app-capable”</span> <span class="attr">content</span>=<span class="string">”yes”/</span>&gt;</span>  <span class="comment">&lt;!--添加到主屏后的标题（iOS 6 新增）</span></span><br><span class="line"><span class="comment">是否启用 WebApp 全屏模式，删除苹果默认的工具栏和菜单栏--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">”apple-itunes-app”</span> <span class="attr">content</span>=<span class="string">”app-id</span>=<span class="string">myAppStoreID,</span> <span class="attr">affiliate-data</span>=<span class="string">myAffiliateData,</span> <span class="attr">app-argument</span>=<span class="string">myURL”</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--添加智能 App 广告条 Smart App Banner（iOS 6+ Safari）--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">”apple-mobile-web-app-status-bar-style”</span> <span class="attr">content</span>=<span class="string">”black”/</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">”format-detection”</span> <span class="attr">content</span>=<span class="string">”telphone</span>=<span class="string">no,</span> <span class="attr">email</span>=<span class="string">no”/</span>&gt;</span>  <span class="comment">&lt;!--设置苹果工具栏颜色--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">”renderer”</span> <span class="attr">content</span>=<span class="string">”webkit”</span>&gt;</span> <span class="comment">&lt;!-- 启用360浏览器的极速模式(webkit)--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">”X-UA-Compatible”</span> <span class="attr">content</span>=<span class="string">”IE</span>=<span class="string">edge”</span>&gt;</span>     <span class="comment">&lt;!--避免IE使用兼容模式--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">”Cache-Control”</span> <span class="attr">content</span>=<span class="string">”no-siteapp”</span> /&gt;</span>    <span class="comment">&lt;!--不让百度转码--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">”HandheldFriendly”</span> <span class="attr">content</span>=<span class="string">”true”</span>&gt;</span>     <span class="comment">&lt;!--针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">”MobileOptimized”</span> <span class="attr">content</span>=<span class="string">”320″</span>&gt;</span>   <span class="comment">&lt;!--微软的老式浏览器--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">”screen-orientation”</span> <span class="attr">content</span>=<span class="string">”portrait”</span>&gt;</span>   <span class="comment">&lt;!--uc强制竖屏--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">”x5-orientation”</span> <span class="attr">content</span>=<span class="string">”portrait”</span>&gt;</span>    <span class="comment">&lt;!--QQ强制竖屏--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">”full-screen”</span> <span class="attr">content</span>=<span class="string">”yes”</span>&gt;</span>              <span class="comment">&lt;!--UC强制全屏--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">”x5-fullscreen”</span> <span class="attr">content</span>=<span class="string">”true”</span>&gt;</span>       <span class="comment">&lt;!--QQ强制全屏--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">”browsermode”</span> <span class="attr">content</span>=<span class="string">”application”</span>&gt;</span>   <span class="comment">&lt;!--UC应用模式--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">”x5-page-mode”</span> <span class="attr">content</span>=<span class="string">”app”</span>&gt;</span>   <span class="comment">&lt;!-- QQ应用模式--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">”msapplication-tap-highlight”</span> <span class="attr">content</span>=<span class="string">”no”</span>&gt;</span>    <span class="comment">&lt;!--windows phone 点击无高亮</span></span><br><span class="line"><span class="comment">设置页面不缓存--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">”pragma”</span> <span class="attr">content</span>=<span class="string">”no-cache”</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">”cache-control”</span> <span class="attr">content</span>=<span class="string">”no-cache”</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">”expires”</span> <span class="attr">content</span>=<span class="string">”0″</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="viewport"><a href="#viewport" class="headerlink" title="viewport"></a>viewport</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1, maximum-scale=1&quot;</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="html语义化的了解"><a href="#html语义化的了解" class="headerlink" title="html语义化的了解"></a>html语义化的了解</h3><ol>
+<li>内容结构化，结构更清晰</li>
+<li>便于搜索引擎解析</li>
+<li>便于阅读理解维护</li>
+</ol>
+<h3 id="Html新特性"><a href="#Html新特性" class="headerlink" title="Html新特性"></a>Html新特性</h3><ol>
+<li>语义化标签：article、footer、header、nav、section</li>
+<li>表单控件：calendar、date、time、email、url、search</li>
+<li>媒体元素：video、audio</li>
+<li>本地存储：localStorage、sessionStorage</li>
+<li>新技术：websocket、webworker</li>
+</ol>
+<h3 id="src和link的区别"><a href="#src和link的区别" class="headerlink" title="src和link的区别"></a>src和link的区别</h3><p><strong>src：</strong>引用资源替换当前元素，用在img、script、iframe<br></p>
+<blockquote>
+<p>当浏览器解析到src会暂停其他资源的下载和处理，直到将该资源加载、编译、执行完毕，这是为什么建议将js脚本放在底部而不是头部的原因</p>
+</blockquote>
+<p><strong>link：</strong>在当前元素和引用资源间建立连接，用在link和a等元素上<br></p>
+<blockquote>
+<p>在文档中添加href，浏览器会识别该文档为CSS文件，并行下载资源并不会停止对当前文档的处理，这个数为什么建议使用link方式加载CSS而不是@import方式</p>
+</blockquote>
+</div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/2022/09/21/CSS%E8%A7%A3%E6%9E%90/" title="CSS解析" class="prev">PREV</a><a href="/2022/04/15/%E6%B7%B1%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B5%85%E6%8B%B7%E8%B4%9D/" title="深拷贝和浅拷贝" class="next">NEXT</a></div><a href="#comment" class="comment-anchor"></a><div id="vcomments"></div><script>new Valine({
+    el: "#vcomments",
+    appId: "aD8jJBpu4oew3ovNY73z6Rdq-gzGzoHsz",
+    appKey: "FdzS5SOPHdhYQoEUngQ8K2QW",
+    notify: false,
+    verify: false,
+    avatar: "robohash",
+    visitor: true,
+    placeholder: "随便说点什么～.～",
+});</script><div class="copyright"><p>© 2022 - 2023 <a target="_blank">杨书平</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;"> </span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/jquery-1.8.2.min.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/articleCatalog.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script><script>const valineAPI = (() => {
+try {
+    AV.init("aD8jJBpu4oew3ovNY73z6Rdq-gzGzoHsz", "FdzS5SOPHdhYQoEUngQ8K2QW");
+} catch(error) {}
+const isExist = (identity) => {
+    identity = identity || getRealPath();
+    let query = new AV.Query('Timer');
+    return new Promise((resolve, reject) => {
+    query.equalTo("identity", identity);
+    query.find().then(results => {
+        resolve(results.length > 0);
+    }, error => reject(error));
+    })
+}
+
+const _get = (identity) => {
+    let query = null;
+    if(identity && identity instanceof Array){
+    let querys = [];
+    for(let i = 0; i < identity.length; ++i) {
+        querys[i] = new AV.Query('Timer');
+        querys[i].equalTo('identity', identity[i]);
+    }
+    query = AV.Query.or.apply(null ,querys);
+    } else {
+    identity = identity || getRealPath();
+    query = new AV.Query("Timer");
+    query.equalTo("identity", identity);
+    }
+
+    return new Promise((resolve, reject) => {
+    query.find()
+    .then(results => resolve(results))
+    .catch(error => reject(error))
+    })
+}
+
+const create = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+    let Todo = AV.Object.extend('Timer');
+    let todo = new Todo();
+    todo.set("times", 1);
+    todo.set("identity", identity);
+    todo.save().then(res => resolve(true), error => reject(error));
+    })
+}
+
+const update = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+    let query = new AV.Query('Timer');
+    query.equalTo("identity", identity);
+    query.find().then(todos => {
+        todos.forEach(todo => {
+        todo.set("times", todo.attributes.times + 1);
+        });
+        return AV.Object.saveAll(todos);
+    }).then(todos => resolve(true), error => reject(error));
+    })
+}
+
+return {
+    isExist,
+    _get,
+    update,
+    create
+}
+})()
+
+const calcAndWriteTimes = () => {
+let isPost = true;
+
+let timerAllDOM = document.querySelectorAll(".article-timer");
+
+if(isPost) {
+    let identity = timerAllDOM[0].getAttribute("data-identity");
+    valineAPI.isExist(identity)
+    .then(exist => {
+    if(exist) {
+        return valineAPI.update(identity);
+    }
+    return new Promise(resolve => resolve(true));
+    })
+    .then( succuess => valineAPI._get(identity))
+    .then( result => timerAllDOM[0].innerText = result[0].attributes.times)
+    .catch(error => console.log(error.message))
+    return ;
+}
+
+let timerDOMCache = {};
+
+for(let timerDOM of timerAllDOM) {
+    let identity = timerDOM.getAttribute("data-identity");
+    if(timerDOMCache.hasOwnProperty(identity)){
+    timerDOMCache[identity].dom.push(timerDOM);
+    }else{
+    timerDOMCache[identity] = {
+        dom: [timerDOM],
+        times: undefined
+    };
+    }
+}
+
+let identities = Object.keys(timerDOMCache);
+valineAPI._get(identities).then(results => {
+    for(let result of results) {
+    let {identity, times} = result.attributes;
+    timerDOMCache[identity].times = times;
+    timerDOMCache[identity].dom.map(item => item.innerText = times);
+    }
+    for(let identity of identities) {
+    if(timerDOMCache[identity].times){
+        continue;
+    }
+    timerDOMCache[identity].dom.map(item => item.innerText = 1);
+    valineAPI.create(identity);
+    }
+}).catch(error => console.log(error.message))
+}
+
+if(true){
+calcAndWriteTimes();
+}</script></body></html>
