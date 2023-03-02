@@ -1,0 +1,189 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="baidu-site-verification" content="1EB8XoOl0C"><meta name="google-site-verification" content="K7thEgdLm0UfRWJ5MGdF7sCcjClSzAlxFLPv2Oz5CGM"><title> Vue和Rect的比较 · ysp博客</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Vue和Rect的比较"><meta name="keywords" content="vue、 react"><meta name="author" content="杨书平"><link rel="short icon" href="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/favicon.ico"><link rel="stylesheet" href="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/bubuzou.css"><link rel="search" type="application/opensearchdescription+xml" href="https://1518277259.github.io/atom.xml" title="ysp博客"><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script><meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="ysp博客" type="application/atom+xml">
+</head><body><header><div class="header row"> <a href="/" class="logo-link"><img src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/logo.png"></a><ul id="nav_list" class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" data-hover="博文" class="nav-list-link">博文</a></li><li class="nav-list-item"><a href="/archives/" target="_self" data-hover="归档" class="nav-list-link">归档</a></li><li class="nav-list-item"><a href="/live/" target="_self" data-hover="生活" class="nav-list-link">生活</a></li><li class="nav-list-item"><a href="/read/" target="_self" data-hover="读书" class="nav-list-link">读书</a></li><li class="nav-list-item"><a href="/about/" target="_self" data-hover="关于" class="nav-list-link">关于</a></li></ul><div class="search"><a id="search_btn" href="#search"></a></div><div id="nav_btn" class="nav-btn"><span></span><span></span><span></span></div></div></header><div class="row scroll-con"><section class="container"><!-- for archive page--><div id="postAr" class="post"><article class="post-block"><h1 class="post-title">Vue和Rect的比较</h1><div class="post-info">2023-02-20<p class="visit"><i data-identity="2023/02/20/Vue和React的比较/" class="article-timer"></i><span>次访问</span></p></div><div class="post-content"><h1 id="Vue和Rect的比较"><a href="#Vue和Rect的比较" class="headerlink" title="Vue和Rect的比较"></a>Vue和Rect的比较</h1><p>[toc]</p>
+<h3 id="vue-和-react-在-虚拟dom的diff上，做了哪些改进使-速度更快？"><a href="#vue-和-react-在-虚拟dom的diff上，做了哪些改进使-速度更快？" class="headerlink" title="vue 和 react 在 虚拟dom的diff上，做了哪些改进使 速度更快？"></a>vue 和 react 在 虚拟dom的diff上，做了哪些改进使 速度更快？</h3><h4 id="1、传统diff"><a href="#1、传统diff" class="headerlink" title="1、传统diff"></a>1、传统diff</h4><p>&amp;emsp;&amp;emsp;计算两颗树形结构差异并进行转换，传统diff算法是这样做的：循环递归每一个节点 。传统diff算法复杂度达到O(n^3 )这意味着1000个节点就要进行数10亿次的比较，这是非常消耗性能的。</p>
+<h4 id="2-vue的diff算法"><a href="#2-vue的diff算法" class="headerlink" title="2. vue的diff算法"></a>2. vue的diff算法</h4><p>diff算法发生在虚拟dom上,判断是否同一个节点：selector和key都要一样</p>
+<p><strong>diff规则：</strong></p>
+<ol>
+<li>只比较同层的节点，不同层不做比较。删除原节点，并且新建插入更新节点（实际开发中很少遇到）</li>
+<li>新旧节点是同层节点，但不是同一个节点，不做精细化比较。删除原节点，并且新建插入更新节点（实际开发中很少遇到）</li>
+<li>新旧节点是同层节点，也是同一个节点，需要做精细化比较</li>
+</ol>
+<h4 id="3-react的diff算法"><a href="#3-react的diff算法" class="headerlink" title="3. react的diff算法"></a>3. react的diff算法</h4><p>&amp;emsp;&amp;emsp;从左往右依次对比，利用元素的index和标识lastIndex进行比较，如果满足index &lt; lastIndex就移动元素，删除和添加则各自按照规则调整,跨层不比较，同层比较，跟vue一样<br></p>
+<p><strong>diff策略:</strong></p>
+<ol>
+<li>不满足 index &lt; lastIndex 的条件，不移动；满足 index &lt; lastIndex 的条件，移动节点。</li>
+<li>每一次比较都需要重新设置 lastIndex&#x3D;(index,lastIndex)中的较大数</li>
+<li>移动的节点在前一个被操作的节点后面</li>
+<li>如果从新的节点集合获取的节点在旧节点集合未找到，就是新增，lastIndex为上一次的值不变</li>
+<li>如果新的节点集合遍历完了，旧节点还有值就是删除，loop删除掉就行</li>
+</ol>
+<h4 id="4-对比"><a href="#4-对比" class="headerlink" title="4. 对比"></a>4. 对比</h4><p><strong>相同点：</strong><br><br>&amp;emsp;&amp;emsp;Vue和react的diff算法，都是不进行跨层级比较，只做同级比较。</p>
+<p><strong>不同点：</strong><br></p>
+<ol>
+<li>Vue进行diff时，调用patch打补丁函数，一边比较一边给真实的DOM打补丁</li>
+<li>Vue对比节点，当节点元素类型相同，但是className不同时，认为是不同类型的元素，删除重新创建，而react则认为是同类型节点，进行修改操作</li>
+<li>&amp;emsp;&amp;emsp;① Vue的列表比对，采用从两端到中间的方式，旧集合和新集合两端各存在两个指针，两两进行比较，如果匹配上了就按照新集合去调整旧集合，每次对比结束后，指针向队列中间移动；<br><br>&amp;emsp;&amp;emsp;②而react则是从左往右依次对比，利用元素的index和标识lastIndex进行比较，如果满足index &lt; lastIndex就移动元素，删除和添加则各自按照规则调整；<br><br>&amp;emsp;&amp;emsp;③当一个集合把最后一个节点移动到最前面，react会把前面的节点依次向后移动，而Vue只会把最后一个节点放在最前面，这样的操作来看，Vue的diff性能是高于react的</li>
+</ol>
+<h3 id="vue-和-react-里的key的作用是什么-为什么不能用Index？用了会怎样-如果不加key会怎样"><a href="#vue-和-react-里的key的作用是什么-为什么不能用Index？用了会怎样-如果不加key会怎样" class="headerlink" title="vue 和 react 里的key的作用是什么? 为什么不能用Index？用了会怎样? 如果不加key会怎样?"></a>vue 和 react 里的key的作用是什么? 为什么不能用Index？用了会怎样? 如果不加key会怎样?</h3><h4 id="1-什么是key"><a href="#1-什么是key" class="headerlink" title="1.什么是key"></a>1.什么是key</h4><p>key是虚拟Dom对象的标识，在更新显示时key起着极其重要的作用。</p>
+<h4 id="2-key的作用"><a href="#2-key的作用" class="headerlink" title="2.key的作用"></a>2.key的作用</h4><p>当Vue中data或React中state的数据发生变化时，react会根据新数据生成新的虚拟Dom，随后Vue&#x2F;React会对「新虚拟Dom」和「旧虚拟Dom」进行diff比较，比较规则如下：</p>
+<ol>
+<li>旧虚拟Dom中找到与新虚拟Dom相同的key：</li>
+</ol>
+<ul>
+<li>若虚拟Dom中的内容没变，则直接使用之前的真实Dom</li>
+<li>若虚拟Dom中的内容变了，则生成新的真实Dom，随后替换掉页面中之前的真实Dom</li>
+</ul>
+<ol start="2">
+<li>旧虚拟Dom中没有找到与新虚拟Dom相同的key：</li>
+</ol>
+<ul>
+<li>根据数据创建新的真实Dom，随后渲染到页面</li>
+</ul>
+<h4 id="3-为什么遍历列表时，key最好不要用index"><a href="#3-为什么遍历列表时，key最好不要用index" class="headerlink" title="3.为什么遍历列表时，key最好不要用index"></a>3.为什么遍历列表时，key最好不要用index</h4><p>用index作为key，可能引发的问题如下：</p>
+<ol>
+<li>若对数据进行逆序添加，逆序删除等破坏顺序的操作，会产生虚拟DOM和旧的真实DOM中的部分key（甚至所有Key）都对不上的问题，接着会产生很多没有必要的真实DOM更新，渲染效率低下。</li>
+<li>如果列表行结构中还包含输入类的DOM，则会产生错误的DOM更新，使得界面出现问题</li>
+<li>如果只是数据单纯的展示，不做增删改，使用index也没关系</li>
+</ol>
+<h4 id="4-如果不加key会怎样"><a href="#4-如果不加key会怎样" class="headerlink" title="4.如果不加key会怎样?"></a>4.如果不加key会怎样?</h4><ol>
+<li>当不带Key的时候，采用的是遍历的方式来对比新旧节点，从而达到更新节点的效果。</li>
+<li>带key的时候使用的是map映射来更新节点。</li>
+<li>在模板简单的时候使用就地复用（就是不使用key）效率会更高。</li>
+<li>所以使用key并不意味着一定可以提高diff算法的效率。</li>
+<li>key的作用主要是为每个节点设置一个唯一的标识，可以更快，更准确的拿到节点。</li>
+<li>在一些情况下，还可以避免就地复用带来的副作用（表单数据错位）</li>
+</ol>
+</div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/2023/02/20/Vue%E8%A7%A3%E6%9E%90/" title="Vue解析" class="next">NEXT</a></div><a href="#comment" class="comment-anchor"></a><div id="vcomments"></div><script>new Valine({
+    el: "#vcomments",
+    appId: "aD8jJBpu4oew3ovNY73z6Rdq-gzGzoHsz",
+    appKey: "FdzS5SOPHdhYQoEUngQ8K2QW",
+    notify: false,
+    verify: false,
+    avatar: "robohash",
+    visitor: true,
+    placeholder: "随便说点什么～.～",
+});</script><div class="copyright"><p>© 2022 - 2023 <a target="_blank">杨书平</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;"> </span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/jquery-1.8.2.min.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/articleCatalog.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script><script>const valineAPI = (() => {
+try {
+    AV.init("aD8jJBpu4oew3ovNY73z6Rdq-gzGzoHsz", "FdzS5SOPHdhYQoEUngQ8K2QW");
+} catch(error) {}
+const isExist = (identity) => {
+    identity = identity || getRealPath();
+    let query = new AV.Query('Timer');
+    return new Promise((resolve, reject) => {
+    query.equalTo("identity", identity);
+    query.find().then(results => {
+        resolve(results.length > 0);
+    }, error => reject(error));
+    })
+}
+
+const _get = (identity) => {
+    let query = null;
+    if(identity && identity instanceof Array){
+    let querys = [];
+    for(let i = 0; i < identity.length; ++i) {
+        querys[i] = new AV.Query('Timer');
+        querys[i].equalTo('identity', identity[i]);
+    }
+    query = AV.Query.or.apply(null ,querys);
+    } else {
+    identity = identity || getRealPath();
+    query = new AV.Query("Timer");
+    query.equalTo("identity", identity);
+    }
+
+    return new Promise((resolve, reject) => {
+    query.find()
+    .then(results => resolve(results))
+    .catch(error => reject(error))
+    })
+}
+
+const create = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+    let Todo = AV.Object.extend('Timer');
+    let todo = new Todo();
+    todo.set("times", 1);
+    todo.set("identity", identity);
+    todo.save().then(res => resolve(true), error => reject(error));
+    })
+}
+
+const update = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+    let query = new AV.Query('Timer');
+    query.equalTo("identity", identity);
+    query.find().then(todos => {
+        todos.forEach(todo => {
+        todo.set("times", todo.attributes.times + 1);
+        });
+        return AV.Object.saveAll(todos);
+    }).then(todos => resolve(true), error => reject(error));
+    })
+}
+
+return {
+    isExist,
+    _get,
+    update,
+    create
+}
+})()
+
+const calcAndWriteTimes = () => {
+let isPost = true;
+
+let timerAllDOM = document.querySelectorAll(".article-timer");
+
+if(isPost) {
+    let identity = timerAllDOM[0].getAttribute("data-identity");
+    valineAPI.isExist(identity)
+    .then(exist => {
+    if(exist) {
+        return valineAPI.update(identity);
+    }
+    return new Promise(resolve => resolve(true));
+    })
+    .then( succuess => valineAPI._get(identity))
+    .then( result => timerAllDOM[0].innerText = result[0].attributes.times)
+    .catch(error => console.log(error.message))
+    return ;
+}
+
+let timerDOMCache = {};
+
+for(let timerDOM of timerAllDOM) {
+    let identity = timerDOM.getAttribute("data-identity");
+    if(timerDOMCache.hasOwnProperty(identity)){
+    timerDOMCache[identity].dom.push(timerDOM);
+    }else{
+    timerDOMCache[identity] = {
+        dom: [timerDOM],
+        times: undefined
+    };
+    }
+}
+
+let identities = Object.keys(timerDOMCache);
+valineAPI._get(identities).then(results => {
+    for(let result of results) {
+    let {identity, times} = result.attributes;
+    timerDOMCache[identity].times = times;
+    timerDOMCache[identity].dom.map(item => item.innerText = times);
+    }
+    for(let identity of identities) {
+    if(timerDOMCache[identity].times){
+        continue;
+    }
+    timerDOMCache[identity].dom.map(item => item.innerText = 1);
+    valineAPI.create(identity);
+    }
+}).catch(error => console.log(error.message))
+}
+
+if(true){
+calcAndWriteTimes();
+}</script></body></html>
