@@ -1,0 +1,188 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="baidu-site-verification" content="1EB8XoOl0C"><meta name="google-site-verification" content="K7thEgdLm0UfRWJ5MGdF7sCcjClSzAlxFLPv2Oz5CGM"><title> 模块化方案 · ysp博客</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="模块、ADM、commonJS"><meta name="keywords" content="JS 模块 commonJS ADM"><meta name="author" content="杨书平"><link rel="short icon" href="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/favicon.ico"><link rel="stylesheet" href="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/bubuzou.css"><link rel="search" type="application/opensearchdescription+xml" href="https://1518277259.github.io/atom.xml" title="ysp博客"><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script><meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="ysp博客" type="application/atom+xml">
+</head><body><header><div class="header row"> <a href="/" class="logo-link"><img src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/logo.png"></a><ul id="nav_list" class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" data-hover="博文" class="nav-list-link">博文</a></li><li class="nav-list-item"><a href="/archives/" target="_self" data-hover="归档" class="nav-list-link">归档</a></li><li class="nav-list-item"><a href="/live/" target="_self" data-hover="生活" class="nav-list-link">生活</a></li><li class="nav-list-item"><a href="/read/" target="_self" data-hover="读书" class="nav-list-link">读书</a></li><li class="nav-list-item"><a href="/about/" target="_self" data-hover="关于" class="nav-list-link">关于</a></li></ul><div class="search"><a id="search_btn" href="#search"></a></div><div id="nav_btn" class="nav-btn"><span></span><span></span><span></span></div></div></header><div class="row scroll-con"><section class="container"><!-- for archive page--><div id="postAr" class="post"><article class="post-block"><h1 class="post-title">模块化方案</h1><div class="post-info">2023-02-16<p class="visit"><i data-identity="2023/02/16/模块化方案/" class="article-timer"></i><span>次访问</span></p></div><div class="post-content"><h3 id="模块化方案"><a href="#模块化方案" class="headerlink" title="模块化方案"></a>模块化方案</h3><h4 id="模块化优点"><a href="#模块化优点" class="headerlink" title="模块化优点"></a>模块化优点</h4><ol>
+<li>可维护性：每个模块都是单独定义的，之间相互独立</li>
+<li>命名空间：为了避免在JavaScript中的全局污染，我们通过模块化的方式利用函数作用域来构建命名空间</li>
+<li>可复用</li>
+</ol>
+<h4 id="模块化方案-1"><a href="#模块化方案-1" class="headerlink" title="模块化方案"></a>模块化方案</h4><h5 id="揭示模块模式-Reveaing-Module"><a href="#揭示模块模式-Reveaing-Module" class="headerlink" title="揭示模块模式(Reveaing Module)"></a>揭示模块模式(Reveaing Module)</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myRevealingModule = (<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> privateVar = “<span class="title class_">Ben</span> <span class="title class_">Cherry</span>”,</span><br><span class="line">  publicVar = “<span class="title class_">Hey</span> there!”;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">function</span> <span class="title function_">privateFunction</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>( <span class="string">&quot;Name:&quot;</span> + privateVar );</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">function</span> <span class="title function_">publicSetName</span>(<span class="params"> strName </span>) &#123;</span><br><span class="line">      privateVar = strName;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">function</span> <span class="title function_">publicGetName</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="title function_">privateFunction</span>();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">      <span class="attr">setName</span>: publicSetName,</span><br><span class="line">      <span class="attr">greeting</span>: publicVar,</span><br><span class="line">      <span class="attr">getName</span>: publicGetName</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;)();</span><br><span class="line">myRevealingModule.<span class="title function_">setName</span>( “<span class="title class_">Paul</span> <span class="title class_">Kinlan</span>” );</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><b>优点:</b> <br></p>
+<ol>
+<li>可以在任何地方实现（没有库，不需要语言支持）。</li>
+<li>可以在单个文件中定义多个模块。</li>
+</ol>
+<p><b>缺点:</b> <br></p>
+<ol>
+<li>无法以编程方式导入模块（除非使用eval）。</li>
+<li>需要手动处理依赖关系。</li>
+<li>无法异步加载模块。<br>4。 循环依赖可能很麻烦。</li>
+<li>很难通过静态代码分析器进行分析。</li>
+</ol>
+<h5 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h5><p>CommonJS是服务器端模块的规范，Node.js采用了这个规范。CommonJS规范加载模块是同步的，也就是说，只有加载完成，才能执行后面的操作(require 和 exports)</p>
+<p><b>优点:</b> <br></p>
+<ol>
+<li>简单：开发人员可以在不查看文档的情况下掌握概念。</li>
+<li>集成了依赖管理：模块需要其他模块并按所需顺序加载。</li>
+<li>require可以在任何地方调用：模块可以通过编程方式加载。</li>
+</ol>
+<p><b>缺点:</b> <br></p>
+<ol>
+<li>同步API使其不适合某些用途（客户端）。</li>
+<li>每个模块一个文件。</li>
+<li>浏览器需要加载程序库或转换。</li>
+<li>模块没有构造函数（Node支持）。</li>
+<li>很难进行静态代码分析。</li>
+</ol>
+<h5 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h5><p>AMD规范则是异步加载模块，允许指定回调函数，通过返回一个对象做为模块对象</p>
+<p><b>优点:</b> <br></p>
+<ol>
+<li>异步加载（更好的启动时间）。</li>
+<li>支持循环依赖。</li>
+<li>require和的兼容性exports。</li>
+<li>完全整合了依赖管理。</li>
+<li>如有必要，可以将模块拆分为多个文件。</li>
+<li>支持构造函数。</li>
+<li>插件支持（自定义加载步骤）。</li>
+</ol>
+<p><b>缺点:</b> <br></p>
+<ol>
+<li>语法稍微复杂一些。</li>
+<li>除非编译，否则需要加载程序库。</li>
+<li>很难分析静态代码。</li>
+<li>除了异步加载以外，AMD的另一个优点是你可以在模块里使用对象、函数、构造函数、字符串、JSON或者别的数据类型，而CommonJS只支持对象。<h5 id="UMD"><a href="#UMD" class="headerlink" title="UMD"></a>UMD</h5></li>
+</ol>
+<p>统一模块定义（UMD：Universal Module Definition ）就是将 AMD 和 CommonJS<br>合在一起的一种尝试，常见的做法是将CommonJS 语法包裹在兼容 AMD 的代码中。</p>
+<h5 id="ES6模块"><a href="#ES6模块" class="headerlink" title="ES6模块"></a>ES6模块</h5><p>支持JavaScript标准化的ECMA团队决定解决模块问题，<br>兼容同步和异步操作模式。</p>
+</div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/2022/04/15/%E6%B7%B1%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B5%85%E6%8B%B7%E8%B4%9D/" title="深拷贝和浅拷贝" class="next">NEXT</a></div><a href="#comment" class="comment-anchor"></a><div id="vcomments"></div><script>new Valine({
+    el: "#vcomments",
+    appId: "aD8jJBpu4oew3ovNY73z6Rdq-gzGzoHsz",
+    appKey: "FdzS5SOPHdhYQoEUngQ8K2QW",
+    notify: false,
+    verify: false,
+    avatar: "robohash",
+    visitor: true,
+    placeholder: "随便说点什么～.～",
+});</script><div class="copyright"><p>© 2022 - 2023 <a target="_blank">杨书平</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;"> </span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/jquery-1.8.2.min.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/articleCatalog.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script><script>const valineAPI = (() => {
+try {
+    AV.init("aD8jJBpu4oew3ovNY73z6Rdq-gzGzoHsz", "FdzS5SOPHdhYQoEUngQ8K2QW");
+} catch(error) {}
+const isExist = (identity) => {
+    identity = identity || getRealPath();
+    let query = new AV.Query('Timer');
+    return new Promise((resolve, reject) => {
+    query.equalTo("identity", identity);
+    query.find().then(results => {
+        resolve(results.length > 0);
+    }, error => reject(error));
+    })
+}
+
+const _get = (identity) => {
+    let query = null;
+    if(identity && identity instanceof Array){
+    let querys = [];
+    for(let i = 0; i < identity.length; ++i) {
+        querys[i] = new AV.Query('Timer');
+        querys[i].equalTo('identity', identity[i]);
+    }
+    query = AV.Query.or.apply(null ,querys);
+    } else {
+    identity = identity || getRealPath();
+    query = new AV.Query("Timer");
+    query.equalTo("identity", identity);
+    }
+
+    return new Promise((resolve, reject) => {
+    query.find()
+    .then(results => resolve(results))
+    .catch(error => reject(error))
+    })
+}
+
+const create = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+    let Todo = AV.Object.extend('Timer');
+    let todo = new Todo();
+    todo.set("times", 1);
+    todo.set("identity", identity);
+    todo.save().then(res => resolve(true), error => reject(error));
+    })
+}
+
+const update = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+    let query = new AV.Query('Timer');
+    query.equalTo("identity", identity);
+    query.find().then(todos => {
+        todos.forEach(todo => {
+        todo.set("times", todo.attributes.times + 1);
+        });
+        return AV.Object.saveAll(todos);
+    }).then(todos => resolve(true), error => reject(error));
+    })
+}
+
+return {
+    isExist,
+    _get,
+    update,
+    create
+}
+})()
+
+const calcAndWriteTimes = () => {
+let isPost = true;
+
+let timerAllDOM = document.querySelectorAll(".article-timer");
+
+if(isPost) {
+    let identity = timerAllDOM[0].getAttribute("data-identity");
+    valineAPI.isExist(identity)
+    .then(exist => {
+    if(exist) {
+        return valineAPI.update(identity);
+    }
+    return new Promise(resolve => resolve(true));
+    })
+    .then( succuess => valineAPI._get(identity))
+    .then( result => timerAllDOM[0].innerText = result[0].attributes.times)
+    .catch(error => console.log(error.message))
+    return ;
+}
+
+let timerDOMCache = {};
+
+for(let timerDOM of timerAllDOM) {
+    let identity = timerDOM.getAttribute("data-identity");
+    if(timerDOMCache.hasOwnProperty(identity)){
+    timerDOMCache[identity].dom.push(timerDOM);
+    }else{
+    timerDOMCache[identity] = {
+        dom: [timerDOM],
+        times: undefined
+    };
+    }
+}
+
+let identities = Object.keys(timerDOMCache);
+valineAPI._get(identities).then(results => {
+    for(let result of results) {
+    let {identity, times} = result.attributes;
+    timerDOMCache[identity].times = times;
+    timerDOMCache[identity].dom.map(item => item.innerText = times);
+    }
+    for(let identity of identities) {
+    if(timerDOMCache[identity].times){
+        continue;
+    }
+    timerDOMCache[identity].dom.map(item => item.innerText = 1);
+    valineAPI.create(identity);
+    }
+}).catch(error => console.log(error.message))
+}
+
+if(true){
+calcAndWriteTimes();
+}</script></body></html>
