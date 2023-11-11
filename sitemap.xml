@@ -352,7 +352,7 @@
   </url>
   
   <url>
-    <loc>https://1518277259.github.io/tags/websocket/</loc>
+    <loc>https://1518277259.github.io/tags/git/</loc>
     <lastmod>2023-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -366,14 +366,7 @@
   </url>
   
   <url>
-    <loc>https://1518277259.github.io/tags/git/</loc>
-    <lastmod>2023-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://1518277259.github.io/tags/%E5%89%8D%E7%AB%AF/</loc>
+    <loc>https://1518277259.github.io/tags/websocket/</loc>
     <lastmod>2023-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -387,7 +380,7 @@
   </url>
   
   <url>
-    <loc>https://1518277259.github.io/tags/%E6%A8%A1%E5%9D%97/</loc>
+    <loc>https://1518277259.github.io/tags/%E5%89%8D%E7%AB%AF/</loc>
     <lastmod>2023-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -395,6 +388,13 @@
   
   <url>
     <loc>https://1518277259.github.io/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/</loc>
+    <lastmod>2023-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://1518277259.github.io/tags/%E6%A8%A1%E5%9D%97/</loc>
     <lastmod>2023-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -445,7 +445,7 @@
   </url>
   
   <url>
-    <loc>https://1518277259.github.io/categories/websocket/</loc>
+    <loc>https://1518277259.github.io/categories/git/</loc>
     <lastmod>2023-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -459,7 +459,7 @@
   </url>
   
   <url>
-    <loc>https://1518277259.github.io/categories/git/</loc>
+    <loc>https://1518277259.github.io/categories/websocket/</loc>
     <lastmod>2023-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
