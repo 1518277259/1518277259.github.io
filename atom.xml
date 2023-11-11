@@ -6,7 +6,7 @@
   <link href="https://1518277259.github.io/atom.xml" rel="self"/>
   
   <link href="https://1518277259.github.io/"/>
-  <updated>2023-03-02T14:04:42.841Z</updated>
+  <updated>2023-11-11T06:19:23.997Z</updated>
   <id>https://1518277259.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>面试题</title>
+    <link href="https://1518277259.github.io/2023/11/11/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <id>https://1518277259.github.io/2023/11/11/%E9%9D%A2%E8%AF%95%E9%A2%98/</id>
+    <published>2023-11-11T01:34:55.000Z</published>
+    <updated>2023-11-11T06:19:23.997Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="1-为什么for循环比forEach性能高？"><a href="#1-为什么for循环比forEach性能高？" class="headerlink" title="1. 为什么for循环比forEach性能高？"></a>1. 为什么for循环比forEach性能高？</h3><ol><li>循环控制：for循环可以设置循环变量、循环条件来精确控制循环次数和逻辑，使得for 循环在大数据集迭代时更高效</li><li>在原型链上的调用次数：forEach迭代器函数是Array对象上的方法，在每次迭代时都会调用原型链上的方法，而for 循环是通过索引得到数组元素，可以避免在原型链上的多次调用，因此性能更高效。</li><li>迭代过程中的中断和跳出：for 循环可以使用 break 语句和 continue 语句在迭代过程中进行中断或跳出，提供了更大的灵活性。而 forEach 迭代器函数无法直接实现中断或跳出，只能通过抛出异常的方式来终止迭代。</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;1-为什么for循环比forEach性能高？&quot;&gt;&lt;a href=&quot;#1-为什么for循环比forEach性能高？&quot; class=&quot;headerlink&quot; title=&quot;1. 为什么for循环比forEach性能高？&quot;&gt;&lt;/a&gt;1. 为什么for循环比forEach</summary>
+      
+    
+    
+    
+    <category term="面试" scheme="https://1518277259.github.io/categories/%E9%9D%A2%E8%AF%95/"/>
+    
+    
+    <category term="面试" scheme="https://1518277259.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>Symbol</title>
@@ -465,42 +489,6 @@
       
       
     <summary type="html">&lt;h3 id=&quot;解析-URL：&quot;&gt;&lt;a href=&quot;#解析-URL：&quot; class=&quot;headerlink&quot; title=&quot;解析 URL：&quot;&gt;&lt;/a&gt;解析 URL：&lt;/h3&gt;&lt;p&gt;首先会对 URL 进行解析，分析所需要使用的传输协议和请求的资源的路径。如果输入的 URL 中的协议</summary>
-      
-    
-    
-    
-    <category term="http" scheme="https://1518277259.github.io/categories/http/"/>
-    
-    
-    <category term="http" scheme="https://1518277259.github.io/tags/http/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>TCP和UDP的区别</title>
-    <link href="https://1518277259.github.io/2022/04/11/TCP%E5%92%8CUDP%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
-    <id>https://1518277259.github.io/2022/04/11/TCP%E5%92%8CUDP%E7%9A%84%E5%8C%BA%E5%88%AB/</id>
-    <published>2022-04-11T03:30:48.000Z</published>
-    <updated>2022-04-11T03:31:31.095Z</updated>
-    
-    <content type="html"><![CDATA[<table><thead><tr><th>TCP</th><th>UDP</th></tr></thead><tbody><tr><td>TCP 是面向连接的协议</td><td>UDP 的无连接的协议</td></tr><tr><td>TCP 在发送数据前需要建立连接</td><td>UDP 无需建立连接就可以发送大量数据</td></tr><tr><td>TCP 回按照特定的顺序重新排列数据包</td><td>UDP 数据包没有固定顺序，所有数据包相互独立</td></tr><tr><td>TCP 传输速度比较慢</td><td>UDP 的传输会更快</td></tr><tr><td>TCP 的头部字节有 20 字节</td><td>UDP 的头部字节只需要 8 个字节</td></tr><tr><td>TCP 是重量级的，在发送数据前需要进行三次握手建立连接</td><td>UDP 是轻量级的，没有跟踪链接，消息排序</td></tr><tr><td>TCP 会进行错误校验，并进行错误恢复</td><td>UDP 也会进行错误检查，但会丢掉错误的数据包</td></tr><tr><td>TCP 有发送确认</td><td>UDP 没有发送确认</td></tr><tr><td>TCP 会使用握手协议</td><td>无握手协议</td></tr><tr><td>TCP 是可靠的，可以确保将数据传送到路由器</td><td>在 UDP 中不能确保数据传送到目标</td></tr></tbody></table>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;TCP&lt;/th&gt;
-&lt;th&gt;UDP&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;&lt;tr&gt;
-&lt;td&gt;TCP 是面向连接的协议&lt;/td&gt;
-&lt;td&gt;UDP 的无连接的协议&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;TCP 在发送数</summary>
       
     
     

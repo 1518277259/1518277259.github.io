@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>面试题</title>
+      <link href="/2023/11/11/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+      <url>/2023/11/11/%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<h3 id="1-为什么for循环比forEach性能高？"><a href="#1-为什么for循环比forEach性能高？" class="headerlink" title="1. 为什么for循环比forEach性能高？"></a>1. 为什么for循环比forEach性能高？</h3><ol><li>循环控制：for循环可以设置循环变量、循环条件来精确控制循环次数和逻辑，使得for 循环在大数据集迭代时更高效</li><li>在原型链上的调用次数：forEach迭代器函数是Array对象上的方法，在每次迭代时都会调用原型链上的方法，而for 循环是通过索引得到数组元素，可以避免在原型链上的多次调用，因此性能更高效。</li><li>迭代过程中的中断和跳出：for 循环可以使用 break 语句和 continue 语句在迭代过程中进行中断或跳出，提供了更大的灵活性。而 forEach 迭代器函数无法直接实现中断或跳出，只能通过抛出异常的方式来终止迭代。</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 面试 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 面试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Symbol</title>
       <link href="/2023/03/01/symbol/"/>
       <url>/2023/03/01/symbol/</url>
